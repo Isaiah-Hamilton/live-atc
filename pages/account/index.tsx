@@ -138,6 +138,7 @@ const Account = ({ session }: { session: AuthSession }) => {
         ) : (
           <Image
             src={avatar || '/defaultAvatar.webp'}
+            alt="Avatar"
             width={100}
             height={100}
             className="rounded-full"

@@ -23,6 +23,7 @@ const Home: NextPage = () => {
                     <div className="relative w-80 h-64 overflow-hidden rounded-xl shadow-md bg-gray-100 dark:bg-gray-700">
                       <Image
                         src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/airports/${element}.jpg`}
+                        alt="Airport Image"
                         layout="fill"
                         objectFit="cover"
                         className="w-full h-full brightness-50"

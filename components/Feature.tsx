@@ -23,6 +23,7 @@ const Hero = () => {
           <div className="relative w-full h-96 overflow-hidden rounded-xl shadow-lg">
             <Image
               src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/airports/${airportCode}.jpg`}
+              alt="Airport Image"
               layout="fill"
               objectFit="cover"
               className="w-full h-full brightness-50"

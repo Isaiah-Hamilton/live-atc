@@ -24,7 +24,7 @@ export default function Avatar({ url, size }: { url: string | null; size: number
   }
 
   return avatarUrl ? (
-    <Image src={avatarUrl} className="rounded-full" width={size} height={size} />
+    <Image alt="Avatar" src={avatarUrl} className="rounded-full" width={size} height={size} />
   ) : (
     <div className="" style={{ height: size, width: size }} />
   )

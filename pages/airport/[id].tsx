@@ -50,6 +50,7 @@ const Airport: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticPro
       </h1>
       <Image
         src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/airports/${id}.jpg`}
+        alt="Airport Image"
         width={800}
         height={400}
         className="rounded-2xl"

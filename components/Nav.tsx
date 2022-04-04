@@ -47,7 +47,7 @@ const Nav = (props: Props, { session }: { session: AuthSession }) => {
     >
       <Link href="/">
         <a className="flex items-center space-x-2">
-          <Image src="/favicon.ico" width={40} height={40} />
+          <Image src="/favicon.ico" alt="Logo" width={40} height={40} />
           <span className={`font-semibold ${darkMode ? 'text-white' : 'text-black'}`}>
             Live ATC
           </span>
@@ -66,7 +66,13 @@ const Nav = (props: Props, { session }: { session: AuthSession }) => {
             {avatar ? (
               <Avatar url={avatar} size={40} />
             ) : (
-              <Image src={'/defaultAvatar.webp'} width={40} height={40} className="rounded-full" />
+              <Image
+                src={'/defaultAvatar.webp'}
+                alt="Avatar"
+                width={40}
+                height={40}
+                className="rounded-full"
+              />
             )}
           </a>
         </Link>
