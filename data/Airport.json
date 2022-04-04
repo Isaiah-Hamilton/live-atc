@@ -1,0 +1,74 @@
+[
+  {
+    "icao": "KATL",
+    "iata": "ATL",
+    "name": "Hartsfield Jackson Atlanta International Airport",
+    "city": "Atlanta",
+    "state": "Georgia",
+    "country": "US",
+    "elevation": 1026,
+    "lat": 33.6366996765,
+    "lon": -84.4281005859,
+    "tz": "America/New_York"
+  },
+  {
+    "icao": "KLAX",
+    "iata": "LAX",
+    "name": "Los Angeles International Airport",
+    "city": "Los Angeles",
+    "state": "California",
+    "country": "US",
+    "elevation": 125,
+    "lat": 33.94250107,
+    "lon": -118.4079971,
+    "tz": "America/Los_Angeles"
+  },
+  {
+    "icao": "KSFO",
+    "iata": "SFO",
+    "name": "San Francisco International Airport",
+    "city": "San Francisco",
+    "state": "California",
+    "country": "US",
+    "elevation": 13,
+    "lat": 37.6189994812,
+    "lon": -122.375,
+    "tz": "America/Los_Angeles"
+  },
+  {
+    "icao": "KJFK",
+    "iata": "JFK",
+    "name": "John F Kennedy International Airport",
+    "city": "New York",
+    "state": "New-York",
+    "country": "US",
+    "elevation": 13,
+    "lat": 40.63980103,
+    "lon": -73.77890015,
+    "tz": "America/New_York"
+  },
+  {
+    "icao": "KSEA",
+    "iata": "SEA",
+    "name": "Seattle Tacoma International Airport",
+    "city": "Seattle",
+    "state": "Washington",
+    "country": "US",
+    "elevation": 433,
+    "lat": 47.4490013123,
+    "lon": -122.3089981079,
+    "tz": "America/Los_Angeles"
+  },
+  {
+    "icao": "KAUS",
+    "iata": "AUS",
+    "name": "Austin Bergstrom International Airport",
+    "city": "Austin",
+    "state": "Texas",
+    "country": "US",
+    "elevation": 542,
+    "lat": 30.1944999695,
+    "lon": -97.6698989868,
+    "tz": "America/Chicago"
+  }
+]
