@@ -54,7 +54,7 @@ const Airport: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticPro
           </h1>
           <div>
             <Image
-              src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/airports/${id}.jpg`}
+              src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/airports/${id}.jpg` || "/placeholder.png"}
               alt="Airport Image"
               width={800}
               height={400}
