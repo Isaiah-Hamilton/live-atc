@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
+import { InfoCircledIcon, Cross2Icon } from '@radix-ui/react-icons'
 import Layout from '../../components/Layouts'
 import Airport from '../../types/airport'
 import AirportCodes from '../../data/Airport.json'
@@ -41,6 +42,8 @@ const Airport: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticPro
   const router = useRouter()
   const { id } = router.query
   const [Frequency, setFrequency] = useState<string | null>(null)
+  const [FrequencyName, setFrequencyName] = useState<string | null>(null)
+  const [toast, setToast] = useState<string>('show')
   const airportData: any = AirportCodes.find((airport: Airport) => airport.icao === data.airport)
 
   return (
@@ -48,13 +51,14 @@ const Airport: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticPro
       <div className="flex justify-between">
         <div className="space-y-2">
           <h1 className="text-2xl font-medium">
-            {data.airport}
-            {' - '}
-            {airportData.name}
+            {FrequencyName === null ? `${data.airport} - ${airportData.name}` : FrequencyName}
           </h1>
           <div>
             <Image
-              src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/airports/${id}.jpg` || "/placeholder.png"}
+              src={
+                `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/airports/${id}.jpg` ||
+                '/placeholder.png'
+              }
               alt="Airport Image"
               width={800}
               height={400}
@@ -64,10 +68,25 @@ const Airport: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticPro
           {Frequency === null ? (
             <></>
           ) : (
-            <audio controls autoPlay className="rounded-xl w-full">
-              <source src={Frequency || ''} />
-              Your browser does not support the audio element.
-            </audio>
+            <>
+              <div
+                className={`bg-blue-500 rounded-lg text-white p-2 flex items-center justify-between ${
+                  toast === 'show' ? 'block' : 'hidden'
+                }`}
+              >
+                <div className="flex items-center space-x-1">
+                  <InfoCircledIcon />
+                  <span>Audio will automatically start, If audio stops then reload page.</span>
+                </div>
+                <div className="justify-self-end cursor-pointer">
+                  <Cross2Icon onClick={() => setToast('hide')} />
+                </div>
+              </div>
+              <audio controls autoPlay className="rounded-xl w-full">
+                <source src={Frequency || ''} />
+                Your browser does not support the audio element.
+              </audio>
+            </>
           )}
         </div>
         <div className="space-y-2">
@@ -78,11 +97,11 @@ const Airport: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticPro
                 return (
                   <li
                     key={i}
-                    className="bg-gray-200 dark:bg-gray-700 rounded-lg mb-4 p-2 border-2 border-gray-200 dark:border-gray-600 hover:border-2 hover:border-brand-600 dark:hover:border-brand-800"
+                    className="bg-gray-200 dark:bg-gray-700 rounded-lg mb-4 p-2 border-2 border-gray-200 dark:border-gray-600 hover:border-2 hover:border-blue-400 dark:hover:border-blue-500"
                   >
                     <button
                       onClick={() => {
-                        setFrequency(element.audioLink)
+                        setFrequency(element.audioLink), setFrequencyName(element.name)
                       }}
                       disabled={element.status === 'DOWN'}
                       className="text-left w-full"

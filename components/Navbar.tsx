@@ -50,10 +50,10 @@ const Nav = (props: Props, { session }: { session: AuthSession }) => {
             </a>
           </Link>
           <Link href="/how-it-works">
-            <a className="hover:text-brand-600 transition duration-300 ease-in-out">How it works</a>
+            <a className="hover:text-blue-500 transition duration-300 ease-in-out">How it works</a>
           </Link>
           <Link href="/feature">
-            <a className="hover:text-brand-600 transition duration-300 ease-in-out">Feature</a>
+            <a className="hover:text-blue-500 transition duration-300 ease-in-out">Feature</a>
           </Link>
         </div>
         <div className="hidden lg:flex items-center sm:space-x-3">
@@ -63,7 +63,7 @@ const Nav = (props: Props, { session }: { session: AuthSession }) => {
               {avatar ? (
                 <Avatar url={avatar} size={40} />
               ) : (
-                <div className="px-3 py-1 shadow-sm text-white bg-brand-700 hover:bg-brand-800 rounded-md">
+                <div className="px-3 py-1 shadow-sm text-white ease-in-out duration-300 bg-blue-500 hover:bg-blue-600 rounded-md">
                   Sign In
                 </div>
               )}
