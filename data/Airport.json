@@ -12,6 +12,18 @@
     "tz": "America/New_York"
   },
   {
+    "icao": "KAUS",
+    "iata": "AUS",
+    "name": "Austin Bergstrom International Airport",
+    "city": "Austin",
+    "state": "Texas",
+    "country": "US",
+    "elevation": 542,
+    "lat": 30.1944999695,
+    "lon": -97.6698989868,
+    "tz": "America/Chicago"
+  },
+  {
     "icao": "KLAX",
     "iata": "LAX",
     "name": "Los Angeles International Airport",
@@ -60,15 +72,63 @@
     "tz": "America/Los_Angeles"
   },
   {
-    "icao": "KAUS",
-    "iata": "AUS",
-    "name": "Austin Bergstrom International Airport",
-    "city": "Austin",
+    "icao": "KORD",
+    "iata": "ORD",
+    "name": "Chicago O'Hare International Airport",
+    "city": "Chicago",
+    "state": "Illinois",
+    "country": "US",
+    "elevation": 672,
+    "lat": 41.97859955,
+    "lon": -87.90480042,
+    "tz": "America/Chicago"
+  },
+  {
+    "icao": "KDFW",
+    "iata": "DFW",
+    "name": "Dallas Fort Worth International Airport",
+    "city": "Dallas-Fort Worth",
     "state": "Texas",
     "country": "US",
-    "elevation": 542,
-    "lat": 30.1944999695,
-    "lon": -97.6698989868,
+    "elevation": 607,
+    "lat": 32.8968009949,
+    "lon": -97.0380020142,
     "tz": "America/Chicago"
+  },
+  {
+    "icao": "KMIA",
+    "iata": "MIA",
+    "name": "Miami International Airport",
+    "city": "Miami",
+    "state": "Florida",
+    "country": "US",
+    "elevation": 8,
+    "lat": 25.7931995392,
+    "lon": -80.2906036377,
+    "tz": "America/New_York"
+  },
+  {
+    "icao": "KLAS",
+    "iata": "LAS",
+    "name": "McCarran International Airport",
+    "city": "Las Vegas",
+    "state": "Nevada",
+    "country": "US",
+    "elevation": 2181,
+    "lat": 36.08010101,
+    "lon": -115.1520004,
+    "tz": "America/Los_Angeles"
+  },
+  {
+    "icao": "KMCO",
+    "iata": "MCO",
+    "name": "Orlando International Airport",
+    "city": "Orlando",
+    "state": "Florida",
+    "country": "US",
+    "elevation": 96,
+    "lat": 28.4293994904,
+    "lon": -81.3089981079,
+    "tz": "America/New_York"
   }
 ]
