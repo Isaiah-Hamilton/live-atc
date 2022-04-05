@@ -23,8 +23,8 @@ a {
 }
 
 .frequency_height {
-    height: calc(100vh - 338px);
-  }
+  height: calc(100vh - 338px);
+}
 
 @media screen and (min-width: 768px) {
   .frequency_height {

@@ -48,7 +48,7 @@ const Airport: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticPro
 
   return (
     <Layout>
-      <div id='div' className="md:flex md:justify-between">
+      <div id="div" className="md:flex md:justify-between">
         <div className="space-y-2 w-full h-max">
           <h1 className="text-xl md:text-2xl font-medium">
             {FrequencyName === null ? `${data.airport} - ${airportData.name}` : FrequencyName}
@@ -79,7 +79,11 @@ const Airport: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticPro
                   <span>Audio will automatically start, If audio stops then reload page.</span>
                 </div>
                 <div className="justify-self-end cursor-pointer">
-                  <Cross2Icon onClick={() => {setToast('hide')}} />
+                  <Cross2Icon
+                    onClick={() => {
+                      setToast('hide')
+                    }}
+                  />
                 </div>
               </div>
               <audio controls autoPlay className="rounded-lg w-full">
