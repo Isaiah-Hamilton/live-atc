@@ -8,11 +8,7 @@ const Footer = (props: Props) => {
   const { darkMode } = props
 
   return (
-    <div
-      className={`flex justify-between px-8 pb-2 ${darkMode ? 'dark:bg-gray-800' : 'bg-white'} ${
-        darkMode ? 'dark:text-white' : 'text-black'
-      }`}
-    >
+    <div className={`flex justify-between px-8 pb-2`}>
       <div>
         <span>Made by </span>
         <Link href="https://github.com/isaiah-hamilton">

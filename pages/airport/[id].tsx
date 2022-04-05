@@ -4,6 +4,7 @@ import Airport from '../../types/airport'
 import AirportCodes from '../../data/Airport.json'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import Frequency from '../../components/Frequency'
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const params = context.params
@@ -43,7 +44,7 @@ const Airport: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticPro
 
   return (
     <Layout>
-      <h1>
+      <h1 className="text-2xl font-medium my-4">
         {data.airport}
         {' - '}
         {airportData.name}
@@ -60,29 +61,10 @@ const Airport: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticPro
         Your browser does not support the audio element.
       </audio>*/}
       <div>
-        <h1 className="text-5xl font-medium my-4">Frequency</h1>
-        <div className="dark:bg-gray-800">
-          <ul>
-            {data.frequency.map((element: any, i: number) => {
-              return (
-                <li key={i} className="bg-gray-600 rounded-lg mb-4 p-2">
-                  <button onClick={() => {}}>
-                    <h1>{element.name}</h1>
-                    <div className="grid grid-rows-3 grid-flow-col gap-2">
-                      <span>{element.frequency}</span>
-                      <span>Status: {element.status}</span>
-                      <span>Listeners: {element.status === 'DOWN' ? '0' : element.listeners}</span>
-                    </div>
-                  </button>
-                </li>
-              )
-            })}
-          </ul>
+        <h1 className="text-2xl font-medium my-4">Frequency</h1>
+        <div className="dark:bg-gray-800 pb-4">
+          <Frequency data={data} />
         </div>
-      </div>
-      <div className="mb-4 dark:bg-gray-800">
-        <span className="sr-only">null</span>
-        Tests
       </div>
     </Layout>
   )

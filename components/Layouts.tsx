@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import Nav from './Nav'
-import Footer from './Footer'
+import Navbar from './Navbar'
 
 type Props = {
   hideHeader?: boolean
@@ -26,16 +25,9 @@ const Layout = (props: Props) => {
   }
 
   return (
-    <div>
-      {!hideHeader && <Nav darkMode={darkMode} updateTheme={updateTheme} />}
-      <main
-        className={`${darkMode ? 'dark:bg-gray-800' : 'bg-white'} ${
-          darkMode ? 'dark:text-white' : 'text-black'
-        } h-screen px-8`}
-      >
-        {children}
-      </main>
-      {!hideFooter && <Footer darkMode={darkMode} />}
+    <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-white min-h-screen px-8">
+      {!hideHeader && <Navbar darkMode={darkMode} updateTheme={updateTheme} />}
+      <main>{children}</main>
     </div>
   )
 }
