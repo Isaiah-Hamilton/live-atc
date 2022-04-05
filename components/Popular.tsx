@@ -11,7 +11,7 @@ const Popular = () => {
           <div className="hover:-translate-y-4 ease-in-out duration-300 m-4" key={i}>
             <Link href={`/airport/${element}`}>
               <a>
-                <div className="relative w-80 h-64 overflow-hidden rounded-xl shadow-md bg-gray-100 dark:bg-gray-700">
+                <div className="relative w-60 h-44 md:w-80 md:h-64 overflow-hidden rounded-xl shadow-md bg-gray-100 dark:bg-gray-700">
                   <Image
                     src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/airports/${element}.jpg`}
                     alt="Airport Image"

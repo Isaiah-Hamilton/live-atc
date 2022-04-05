@@ -5,7 +5,7 @@ import Airport from '../../types/airport'
 import AirportCodes from '../../data/Airport.json'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const params = context.params
@@ -48,21 +48,21 @@ const Airport: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticPro
 
   return (
     <Layout>
-      <div className="flex justify-between">
-        <div className="space-y-2">
-          <h1 className="text-2xl font-medium">
+      <div id='div' className="md:flex md:justify-between">
+        <div className="space-y-2 w-full h-max">
+          <h1 className="text-xl md:text-2xl font-medium">
             {FrequencyName === null ? `${data.airport} - ${airportData.name}` : FrequencyName}
           </h1>
-          <div>
+          <div className="relative w-full h-72 md:h-96">
             <Image
               src={
                 `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/airports/${id}.jpg` ||
                 '/placeholder.png'
               }
               alt="Airport Image"
-              width={800}
-              height={400}
-              className="rounded-2xl mt-2"
+              layout="fill"
+              objectFit="cover"
+              className="w-full h-full rounded-xl mt-2"
             />
           </div>
           {Frequency === null ? (
@@ -74,30 +74,30 @@ const Airport: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticPro
                   toast === 'show' ? 'block' : 'hidden'
                 }`}
               >
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-1 text-xs lg:text-base">
                   <InfoCircledIcon />
                   <span>Audio will automatically start, If audio stops then reload page.</span>
                 </div>
                 <div className="justify-self-end cursor-pointer">
-                  <Cross2Icon onClick={() => setToast('hide')} />
+                  <Cross2Icon onClick={() => {setToast('hide')}} />
                 </div>
               </div>
-              <audio controls autoPlay className="rounded-xl w-full">
+              <audio controls autoPlay className="rounded-lg w-full">
                 <source src={Frequency || ''} />
                 Your browser does not support the audio element.
               </audio>
             </>
           )}
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 md:ml-8 min-w-fit">
           <h1 className="text-2xl font-medium">Frequency</h1>
           <div>
-            <ul className="overflow-y-scroll frequency_height">
+            <ul className={`overflow-y-scroll overflow-hidden frequency_height`}>
               {data.frequency.map((element: any, i: number) => {
                 return (
                   <li
                     key={i}
-                    className="bg-gray-200 dark:bg-gray-700 rounded-lg mb-4 p-2 border-2 border-gray-200 dark:border-gray-600 hover:border-2 hover:border-blue-400 dark:hover:border-blue-500"
+                    className="bg-gray-200 dark:bg-gray-700 rounded-lg mb-4 p-2 border-2 border-gray-200 dark:border-gray-600 hover:border-2 hover:border-blue-400 dark:hover:border-blue-500 min-w-max"
                   >
                     <button
                       onClick={() => {
@@ -106,13 +106,13 @@ const Airport: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticPro
                       disabled={element.status === 'DOWN'}
                       className="text-left w-full"
                     >
-                      <h1>{element.name}</h1>
-                      <div className="grid grid-rows-3 grid-flow-col gap-2">
+                      <div className="grid grid-rows-4 grid-flow-col gap-2">
+                        <h1 className="font-medium">{element.name}</h1>
                         <span>{element.frequency}</span>
-                        <span>Status: {element.status}</span>
                         <span>
                           Listeners: {element.status === 'DOWN' ? '0' : element.listeners}
                         </span>
+                        <span>Status: {element.status}</span>
                       </div>
                     </button>
                   </li>

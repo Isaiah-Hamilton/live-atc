@@ -28,7 +28,7 @@ const Hero = () => {
               objectFit="cover"
               className="w-full h-full brightness-50"
             />
-            <div className="absolute bottom-0 inset-x-0 text-white text-4xl font-medium p-2">
+            <div className="absolute bottom-0 inset-x-0 text-white text-2xl md:text-4xl font-medium p-2">
               {data.airport} - {airportData.name}
             </div>
           </div>

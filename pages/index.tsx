@@ -9,7 +9,7 @@ const Home: NextPage = () => {
       <Feature />
       <div className="mt-10">
         <h1 className="text-4xl font-medium">Popular</h1>
-        <div className="flex justify-between items-center py-8 overflow-x-scroll lg:-ml-4">
+        <div className="flex justify-between items-center py-8 overflow-x-scroll -ml-4">
           <Popular />
         </div>
       </div>
