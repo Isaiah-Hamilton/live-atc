@@ -45,15 +45,12 @@ const Nav = (props: Props, { session }: { session: AuthSession }) => {
         <div className="flex items-center space-x-6">
           <Link href="/">
             <a className="flex items-center">
-              <Image src={'/favicon.ico'} alt="Logo" width={20} height={20} />
+              <Image src={'/favicon.ico'} alt="Logo" width={30} height={30} />
               <span className="ml-2 font-semibold">Live ATC</span>
             </a>
           </Link>
-          <Link href="/how-it-works">
-            <a className="hover:text-blue-500 transition duration-300 ease-in-out">How it works</a>
-          </Link>
-          <Link href="/feature">
-            <a className="hover:text-blue-500 transition duration-300 ease-in-out">Feature</a>
+          <Link href="/about">
+            <a className="hover:text-blue-500 transition duration-300 ease-in-out">About</a>
           </Link>
         </div>
         <div className="hidden lg:flex items-center sm:space-x-3">
