@@ -21,3 +21,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.frequency_height {
+  height: calc(100vh - 104px);
+}
