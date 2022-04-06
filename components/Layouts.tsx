@@ -29,7 +29,7 @@ const Layout = (props: Props) => {
     <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-white min-h-screen px-8">
       {!hideHeader && <Navbar darkMode={darkMode} updateTheme={updateTheme} />}
       <main>{children}</main>
-      {!hideFooter && <Footer darkMode={darkMode} />}
+      {!hideFooter && <Footer />}
     </div>
   )
 }

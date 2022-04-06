@@ -2,12 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { GitHubLogoIcon, HeartFilledIcon, TwitterLogoIcon } from '@radix-ui/react-icons'
 
-type Props = {
-  darkMode: boolean
-}
-
-const Footer = (props: Props) => {
-  const { darkMode } = props
+const Footer = () => {
 
   return (
     <div className={`flex items-center justify-between pb-2 pr-3`}>
