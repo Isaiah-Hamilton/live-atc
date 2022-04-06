@@ -69,7 +69,7 @@ const Nav = (props: Props, { session }: { session: AuthSession }) => {
             type="submit"
             onClick={() => router.push(`/airport/${search.toUpperCase()}`)}
           >
-            <MagnifyingGlassIcon width={20} height={20} />
+            <MagnifyingGlassIcon className="text-white" width={20} height={20} />
           </button>
         </div>
         <div className="hidden lg:flex items-center sm:space-x-3">
