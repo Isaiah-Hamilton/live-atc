@@ -18,7 +18,7 @@ const Footer = () => {
         </Link>
       </div>
       <div className="flex space-x-4">
-        <Link href="https://github.com/isaiah-hamilton/live-atc">
+        <Link href="https://twitter.com/isaiah7hamilton">
           <a>
             <TwitterLogoIcon width={25} height={25} />
           </a>
