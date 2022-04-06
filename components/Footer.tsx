@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { GitHubLogoIcon, HeartFilledIcon, TwitterLogoIcon } from '@radix-ui/react-icons'
 
 const Footer = () => {
-
   return (
     <div className={`flex items-center justify-between pb-2 pr-3`}>
       <div className="flex items-center">
