@@ -1,4 +1,6 @@
+import Image from 'next/image'
 import Link from 'next/link'
+import { GitHubLogoIcon, HeartFilledIcon, TwitterLogoIcon } from '@radix-ui/react-icons'
 
 type Props = {
   darkMode: boolean
@@ -8,17 +10,29 @@ const Footer = (props: Props) => {
   const { darkMode } = props
 
   return (
-    <div className={`flex justify-between px-8 pb-2`}>
-      <div>
-        <span>Made by </span>
+    <div className={`flex items-center justify-between pb-2 pr-3`}>
+      <div className="flex items-center">
+        <Image src="/live-atc.png" width={50} height={50} />
+        <span className="font-semibold">Live ATC</span>
+      </div>
+      <div className="hidden sm:block space-x-1">
+        <span>Code with</span>
+        <HeartFilledIcon className="inline-block text-red-500" width={20} height={20} />
+        <span>by</span>
         <Link href="https://github.com/isaiah-hamilton">
           <a>Isaiah Hamilton</a>
         </Link>
       </div>
-      <div>
-        <span>Source code available on </span>
+      <div className="flex space-x-4">
         <Link href="https://github.com/isaiah-hamilton/live-atc">
-          <a>GitHub</a>
+          <a>
+            <TwitterLogoIcon width={25} height={25} />
+          </a>
+        </Link>
+        <Link href="https://github.com/isaiah-hamilton/live-atc">
+          <a>
+            <GitHubLogoIcon width={25} height={25} />
+          </a>
         </Link>
       </div>
     </div>

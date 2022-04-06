@@ -2,13 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  padding: 0;
-  margin: 0;
+  @apply bg-white dark:bg-gray-800;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @apply bg-white dark:bg-gray-800;
+  padding: 0;
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -22,12 +25,17 @@ a {
   box-sizing: border-box;
 }
 
+.about_height {
+  /* height of the screen minus the height of the footer and the navbar */
+  height: calc(100vh - 138px);
+}
+
 .frequency_height {
   height: calc(100vh - 338px);
 }
 
 @media screen and (min-width: 768px) {
   .frequency_height {
-    height: calc(100vh - 104px);
+    height: calc(100vh - 162px);
   }
 }

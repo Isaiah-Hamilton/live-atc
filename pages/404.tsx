@@ -22,8 +22,8 @@ const ErrorPage: NextPage = ({}) => {
               <div className="flex items-center justify-between w-full md:w-auto">
                 <Link href="/">
                   <a className="flex items-center">
-                    <Image src={'/favicon.ico'} alt="Logo" width={30} height={30} />
-                    <span className="ml-2 font-semibold">Live ATC</span>
+                    <Image src={'/live-atc.png'} alt="Live ATC logo" width={50} height={50} />
+                    <span className="font-semibold">Live ATC</span>
                   </a>
                 </Link>
               </div>

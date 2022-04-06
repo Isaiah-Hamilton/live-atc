@@ -4,7 +4,7 @@ import Layout from '../components/Layouts'
 const About = () => {
   return (
     <Layout>
-      <div className="text-center w-1/2 m-auto">
+      <div className="text-center w-1/2 m-auto about_height">
         <h1 className="text-5xl font-medium my-4">About</h1>
         <p className="text-lg">
           Live ATC is a side project that I built for the

@@ -146,11 +146,25 @@ const Account = ({ session }: { session: AuthSession }) => {
         )}
         <UploadButton onUpload={uploadAvatar} loading={uploading} />
       </div>
-      <div className="grid justify-items-center space-y-8">
+      <div className="grid justify-items-center my-4 space-y-8">
         <div>
-          <label htmlFor="username">Username</label>
+          <label className="inline-block text-sm sm:text-base mb-2" htmlFor="avatar">
+            Avatar Url
+          </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="w-full border dark:border-none dark:bg-gray-600 focus:ring ring-blue-400 rounded-lg outline-none transition duration-100 px-3 py-2"
+            id="avatar"
+            type="url"
+            value={avatar || ''}
+            onChange={(e) => setAvatar(e.target.value)}
+          />
+        </div>
+        <div>
+          <label className="inline-block text-sm sm:text-base mb-2" htmlFor="username">
+            Username
+          </label>
+          <input
+            className="w-full border dark:border-none dark:bg-gray-600 focus:ring ring-blue-400 rounded-lg outline-none transition duration-100 px-3 py-2"
             id="username"
             type="text"
             value={username || ''}
@@ -158,9 +172,11 @@ const Account = ({ session }: { session: AuthSession }) => {
           />
         </div>
         <div>
-          <label htmlFor="website">Website</label>
+          <label className="inline-block text-sm sm:text-base mb-2" htmlFor="website">
+            Website
+          </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="w-full border dark:border-none dark:bg-gray-600 focus:ring ring-blue-400 rounded-lg outline-none transition duration-100 px-3 py-2"
             id="website"
             type="website"
             value={website || ''}
@@ -169,7 +185,7 @@ const Account = ({ session }: { session: AuthSession }) => {
         </div>
         <div>
           <button
-            className="bg-blue-500 rounded-lg px-4 py-2 hover:bg-blue-400 ease-in-out duration-300"
+            className="bg-blue-500 rounded-lg px-4 py-2 hover:bg-blue-600 ease-in-out duration-300"
             onClick={() => updateProfile()}
             disabled={loading}
           >

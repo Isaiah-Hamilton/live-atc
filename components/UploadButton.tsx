@@ -8,7 +8,7 @@ export type UploadButtonProps = {
 export default function UploadButton(props: UploadButtonProps) {
   return (
     <div className="bg-gray-600 rounded-lg text-center">
-      <label className="button primary block" htmlFor="single">
+      <label className="button primary block cursor-pointer" htmlFor="single">
         {props.loading ? 'Uploading ...' : 'Upload'}
       </label>
       <input

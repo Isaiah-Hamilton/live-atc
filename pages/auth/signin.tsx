@@ -27,8 +27,8 @@ const SignIn: NextPage = () => {
       <div className="pl-20 pt-5">
         <Link href="/">
           <a className="flex items-center">
-            <Image src={'/favicon.ico'} alt="Logo" width={20} height={20} />
-            <span className="ml-2 font-semibold">Live ATC</span>
+            <Image src={'/live-atc.png'} alt="Live ATC logo" width={50} height={50} />
+            <span className="font-semibold">Live ATC</span>
           </a>
         </Link>
       </div>
