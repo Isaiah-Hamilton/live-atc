@@ -12,7 +12,7 @@ const Footer = (props: Props) => {
   return (
     <div className={`flex items-center justify-between pb-2 pr-3`}>
       <div className="flex items-center">
-        <Image src="/live-atc.png" width={50} height={50} />
+        <Image src="/live-atc.png" alt="Live ATC logo" width={50} height={50} />
         <span className="font-semibold">Live ATC</span>
       </div>
       <div className="hidden sm:block space-x-1">
