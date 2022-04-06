@@ -6,6 +6,7 @@ import Avatar from '../../components/Avatar'
 import Layout from '../../components/Layouts'
 import UploadButton from '../../components/UploadButton'
 import Image from 'next/image'
+import Header from '../../components/Head'
 
 const Account = ({ session }: { session: AuthSession }) => {
   const [loading, setLoading] = useState<boolean>(true)
@@ -130,78 +131,81 @@ const Account = ({ session }: { session: AuthSession }) => {
   }
 
   return (
-    <Layout>
-      <h1 className="mb-10 text-center text-5xl font-medium">Account</h1>
-      <div className="w-fit m-auto space-y-2">
-        {avatar ? (
-          <Avatar url={avatar} size={100} />
-        ) : (
-          <Image
-            src={avatar || '/defaultAvatar.webp'}
-            alt="Avatar"
-            width={100}
-            height={100}
-            className="rounded-full"
-          />
-        )}
-        <UploadButton onUpload={uploadAvatar} loading={uploading} />
-      </div>
-      <div className="grid justify-items-center my-4 space-y-8">
-        <div>
-          <label className="inline-block text-sm sm:text-base mb-2" htmlFor="avatar">
-            Avatar Url
-          </label>
-          <input
-            className="w-full border dark:border-none dark:bg-gray-600 focus:ring ring-blue-400 rounded-lg outline-none transition duration-100 px-3 py-2"
-            id="avatar"
-            type="url"
-            value={avatar || ''}
-            onChange={(e) => setAvatar(e.target.value)}
-          />
+    <>
+      <Header title={'Account - Live ATC'} />
+      <Layout>
+        <h1 className="mb-10 text-center text-5xl font-medium">Account</h1>
+        <div className="w-fit m-auto space-y-2">
+          {avatar ? (
+            <Avatar url={avatar} size={100} />
+          ) : (
+            <Image
+              src={avatar || '/defaultAvatar.webp'}
+              alt="Avatar"
+              width={100}
+              height={100}
+              className="rounded-full"
+            />
+          )}
+          <UploadButton onUpload={uploadAvatar} loading={uploading} />
         </div>
-        <div>
-          <label className="inline-block text-sm sm:text-base mb-2" htmlFor="username">
-            Username
-          </label>
-          <input
-            className="w-full border dark:border-none dark:bg-gray-600 focus:ring ring-blue-400 rounded-lg outline-none transition duration-100 px-3 py-2"
-            id="username"
-            type="text"
-            value={username || ''}
-            onChange={(event) => setUsername(event.target.value)}
-          />
+        <div className="grid justify-items-center my-4 space-y-8">
+          <div>
+            <label className="inline-block text-sm sm:text-base mb-2" htmlFor="avatar">
+              Avatar Url
+            </label>
+            <input
+              className="w-full border dark:border-none dark:bg-gray-600 focus:ring ring-blue-400 rounded-lg outline-none transition duration-100 px-3 py-2"
+              id="avatar"
+              type="url"
+              value={avatar || ''}
+              onChange={(e) => setAvatar(e.target.value)}
+            />
+          </div>
+          <div>
+            <label className="inline-block text-sm sm:text-base mb-2" htmlFor="username">
+              Username
+            </label>
+            <input
+              className="w-full border dark:border-none dark:bg-gray-600 focus:ring ring-blue-400 rounded-lg outline-none transition duration-100 px-3 py-2"
+              id="username"
+              type="text"
+              value={username || ''}
+              onChange={(event) => setUsername(event.target.value)}
+            />
+          </div>
+          <div>
+            <label className="inline-block text-sm sm:text-base mb-2" htmlFor="website">
+              Website
+            </label>
+            <input
+              className="w-full border dark:border-none dark:bg-gray-600 focus:ring ring-blue-400 rounded-lg outline-none transition duration-100 px-3 py-2"
+              id="website"
+              type="website"
+              value={website || ''}
+              onChange={(e) => setWebsite(e.target.value)}
+            />
+          </div>
+          <div>
+            <button
+              className="bg-blue-500 rounded-lg px-4 py-2 hover:bg-blue-600 ease-in-out duration-300"
+              onClick={() => updateProfile()}
+              disabled={loading}
+            >
+              {loading ? 'Loading ...' : 'Update'}
+            </button>
+          </div>
+          <div>
+            <button
+              className="bg-red-500 rounded-lg px-4 py-2 hover:bg-red-400 ease-in-out duration-300"
+              onClick={() => signOut()}
+            >
+              Sign Out
+            </button>
+          </div>
         </div>
-        <div>
-          <label className="inline-block text-sm sm:text-base mb-2" htmlFor="website">
-            Website
-          </label>
-          <input
-            className="w-full border dark:border-none dark:bg-gray-600 focus:ring ring-blue-400 rounded-lg outline-none transition duration-100 px-3 py-2"
-            id="website"
-            type="website"
-            value={website || ''}
-            onChange={(e) => setWebsite(e.target.value)}
-          />
-        </div>
-        <div>
-          <button
-            className="bg-blue-500 rounded-lg px-4 py-2 hover:bg-blue-600 ease-in-out duration-300"
-            onClick={() => updateProfile()}
-            disabled={loading}
-          >
-            {loading ? 'Loading ...' : 'Update'}
-          </button>
-        </div>
-        <div>
-          <button
-            className="bg-red-500 rounded-lg px-4 py-2 hover:bg-red-400 ease-in-out duration-300"
-            onClick={() => signOut()}
-          >
-            Sign Out
-          </button>
-        </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   )
 }
 
