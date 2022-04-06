@@ -130,5 +130,77 @@
     "lat": 28.4293994904,
     "lon": -81.3089981079,
     "tz": "America/New_York"
+  },
+  {
+    "icao": "KDFW",
+    "iata": "DFW",
+    "name": "Dallas Fort Worth International Airport",
+    "city": "Dallas-Fort Worth",
+    "state": "Texas",
+    "country": "US",
+    "elevation": 607,
+    "lat": 32.8968009949,
+    "lon": -97.0380020142,
+    "tz": "America/Chicago"
+  },
+  {
+    "icao": "KDEN",
+    "iata": "DEN",
+    "name": "Denver International Airport",
+    "city": "Denver",
+    "state": "Colorado",
+    "country": "US",
+    "elevation": 5431,
+    "lat": 39.8616981506,
+    "lon": -104.672996521,
+    "tz": "America/Denver"
+  },
+  {
+    "icao": "KIAH",
+    "iata": "IAH",
+    "name": "George Bush Intercontinental Houston Airport",
+    "city": "Houston",
+    "state": "Texas",
+    "country": "US",
+    "elevation": 97,
+    "lat": 29.9843997955,
+    "lon": -95.3414001465,
+    "tz": "America/Chicago"
+  },
+  {
+    "icao": "KCLT",
+    "iata": "CLT",
+    "name": "Charlotte Douglas International Airport",
+    "city": "Charlotte",
+    "state": "North-Carolina",
+    "country": "US",
+    "elevation": 748,
+    "lat": 35.2140007019,
+    "lon": -80.9430999756,
+    "tz": "America/New_York"
+  },
+  {
+    "icao": "KPHX",
+    "iata": "PHX",
+    "name": "Phoenix Sky Harbor International Airport",
+    "city": "Phoenix",
+    "state": "Arizona",
+    "country": "US",
+    "elevation": 1135,
+    "lat": 33.434299469,
+    "lon": -112.0120010376,
+    "tz": "America/Phoenix"
+  },
+  {
+    "icao": "KDTW",
+    "iata": "DTW",
+    "name": "Detroit Metropolitan Wayne County Airport",
+    "city": "Detroit",
+    "state": "Michigan",
+    "country": "US",
+    "elevation": 645,
+    "lat": 42.2123985291,
+    "lon": -83.3534011841,
+    "tz": "America/New_York"
   }
 ]
