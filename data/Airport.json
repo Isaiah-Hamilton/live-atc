@@ -202,5 +202,113 @@
     "lat": 42.2123985291,
     "lon": -83.3534011841,
     "tz": "America/New_York"
+  },
+  {
+    "icao": "KEWR",
+    "iata": "EWR",
+    "name": "Newark Liberty International Airport",
+    "city": "Newark",
+    "state": "New-Jersey",
+    "country": "US",
+    "elevation": 18,
+    "lat": 40.6925010681,
+    "lon": -74.1687011719,
+    "tz": "America/New_York"
+  },
+  {
+    "icao": "KIAD",
+    "iata": "IAD",
+    "name": "Washington Dulles International Airport",
+    "city": "Washington",
+    "state": "Virginia",
+    "country": "US",
+    "elevation": 312,
+    "lat": 38.94449997,
+    "lon": -77.45580292,
+    "tz": "America/New_York"
+  },
+  {
+    "icao": "KLGA",
+    "iata": "LGA",
+    "name": "La Guardia Airport",
+    "city": "New York",
+    "state": "New-York",
+    "country": "US",
+    "elevation": 21,
+    "lat": 40.77719879,
+    "lon": -73.87259674,
+    "tz": "America/New_York"
+  },
+  {
+    "icao": "KMSP",
+    "iata": "MSP",
+    "name": "Minneapolis-St Paul International/Wold-Chamberlain Airport",
+    "city": "Minneapolis",
+    "state": "Minnesota",
+    "country": "US",
+    "elevation": 841,
+    "lat": 44.8819999695,
+    "lon": -93.2218017578,
+    "tz": "America/Chicago"
+  },
+  {
+    "icao": "KFLL",
+    "iata": "FLL",
+    "name": "Fort Lauderdale Hollywood International Airport",
+    "city": "Fort Lauderdale",
+    "state": "Florida",
+    "country": "US",
+    "elevation": 9,
+    "lat": 26.072599411,
+    "lon": -80.1527023315,
+    "tz": "America/New_York"
+  },
+  {
+    "icao": "KSLC",
+    "iata": "SLC",
+    "name": "Salt Lake City International Airport",
+    "city": "Salt Lake City",
+    "state": "Utah",
+    "country": "US",
+    "elevation": 4227,
+    "lat": 40.7883987427,
+    "lon": -111.9779968262,
+    "tz": "America/Denver"
+  },
+  {
+    "icao": "KBOS",
+    "iata": "BOS",
+    "name": "General Edward Lawrence Logan International Airport",
+    "city": "Boston",
+    "state": "Massachusetts",
+    "country": "US",
+    "elevation": 20,
+    "lat": 42.36429977,
+    "lon": -71.00520325,
+    "tz": "America/New_York"
+  },
+  {
+    "icao": "KMDW",
+    "iata": "MDW",
+    "name": "Chicago Midway International Airport",
+    "city": "Chicago",
+    "state": "Illinois",
+    "country": "US",
+    "elevation": 620,
+    "lat": 41.7859992981,
+    "lon": -87.7524032593,
+    "tz": "America/Chicago"
+  },
+  {
+    "icao": "KPHL",
+    "iata": "PHL",
+    "name": "Philadelphia International Airport",
+    "city": "Philadelphia",
+    "state": "Pennsylvania",
+    "country": "US",
+    "elevation": 36,
+    "lat": 39.8718986511,
+    "lon": -75.2410964966,
+    "tz": "America/New_York"
   }
 ]
