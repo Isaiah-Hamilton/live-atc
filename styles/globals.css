@@ -26,7 +26,6 @@ a {
 }
 
 .about_height {
-  /* height of the screen minus the height of the footer and the navbar */
   height: calc(100vh - 138px);
 }
 
