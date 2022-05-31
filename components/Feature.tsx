@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import AirportData from '../data/Airport.json'
-import Airport from '../types/airport'
+import Airport from '../lib/types/airport'
 
 const Hero = () => {
   const [data, setData]: any = useState('')

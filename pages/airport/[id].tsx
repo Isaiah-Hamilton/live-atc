@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import { InfoCircledIcon, Cross2Icon } from '@radix-ui/react-icons'
 import Layout from '../../components/Layouts'
-import Airport from '../../types/airport'
+import Airport from '../../lib/types/airport'
 import AirportCodes from '../../data/Airport.json'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
