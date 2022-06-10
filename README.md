@@ -6,4 +6,3 @@ Live ATC is a website that lets you to listen to real time ATC (Air Traffic Cont
 
 - [Nextjs](https://nextjs.org/)
 - [Supabase](https://supabase.com)
-- [atc api](https://github.com/isaiah-hamilton/atc-api)
