@@ -54,7 +54,7 @@ const Airport: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticPro
         <div id="div" className="md:flex md:justify-between">
           <div className="space-y-2 w-full h-max">
             <h1 className="text-xl md:text-2xl font-medium">
-              {FrequencyName === null ? `${data.airport} - ${airportData.name}` : FrequencyName}
+              {FrequencyName === null ? `${data.airport} - ${airportData?.name}` : FrequencyName}
             </h1>
             <div className="relative w-full h-72 md:h-96">
               <Image
@@ -100,7 +100,7 @@ const Airport: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticPro
             <h1 className="text-2xl font-medium">Frequency</h1>
             <div>
               <ul className={`overflow-y-scroll overflow-hidden frequency_height`}>
-                {data.frequency.map((element: any, i: number) => {
+                {data.frequency?.map((element: any, i: number) => {
                   return (
                     <li
                       key={i}
