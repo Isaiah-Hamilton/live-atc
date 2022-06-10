@@ -9,7 +9,7 @@ const Hero = () => {
   const airportCode = 'KATL'
 
   useEffect(() => {
-    fetch(`https://atc-api.herokuapp.com/${airportCode}`, { method: 'GET' })
+    fetch(`https://atc-api.deno.dev/${airportCode}`, { method: 'GET' })
       .then((res) => res.json())
       .then((data) => setData(data))
   }, [])

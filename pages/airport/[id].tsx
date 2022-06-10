@@ -10,7 +10,7 @@ import Header from '../../components/Head'
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const params = context.params
-  const response = await fetch(`https://atc-api.herokuapp.com/${params!.id}`, {
+  const response = await fetch(`https://atc-api.deno.dev/${params!.id}`, {
     method: 'GET',
   })
   const data = await response.json()
