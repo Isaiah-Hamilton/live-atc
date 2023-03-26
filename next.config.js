@@ -1,9 +1,6 @@
-module.exports = {
-  images: {
-    domains: [
-      'github.com',
-      'ui-avatars.com',
-      'ecymmfjqjfxjgydzysng.supabase.co',
-    ],
-  },
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
 }
+
+module.exports = nextConfig
