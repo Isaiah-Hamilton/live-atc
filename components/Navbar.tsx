@@ -1,21 +1,21 @@
-import Link from "next/link";
-import { useState } from "react";
-import { useRouter } from "next/router";
+import Link from 'next/link'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 const Nav = () => {
-  const router = useRouter();
-  const [search, setSearch] = useState<string>("");
+  const router = useRouter()
+  const [search, setSearch] = useState<string>('')
 
   const handleInputChange = (event: any) => {
-    setSearch(event.target.value);
-  };
+    setSearch(event.target.value)
+  }
 
   const handleInputEnter = (event: any) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      router.push(`/search?keyword=${search}`);
+    if (event.key === 'Enter') {
+      event.preventDefault()
+      router.push(`/search?keyword=${search}`)
     }
-  };
+  }
 
   return (
     <div className="flex items-center justify-between my-4">
@@ -38,7 +38,7 @@ const Nav = () => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Nav;
+export default Nav

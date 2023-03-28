@@ -1,25 +1,25 @@
-import { NextPage } from "next";
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import supabase, { SUPABASE_URL } from "../../lib/supabase";
-import Layout from "../../components/Layout";
-import Balancer from "react-wrap-balancer";
+import { NextPage } from 'next'
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import supabase, { SUPABASE_URL } from '../../lib/supabase'
+import Layout from '../../components/Layout'
+import Balancer from 'react-wrap-balancer'
 
 const Airport: NextPage = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
       let { data: airports } = await supabase
-        .from("airports")
-        .select("*")
-        .order("icao", { ascending: true });
+        .from('airports')
+        .select('*')
+        .order('icao', { ascending: true })
       // @ts-ignore
-      setData(airports);
-    };
-    fetchData();
-  }, []);
+      setData(airports)
+    }
+    fetchData()
+  }, [])
 
   return (
     <Layout>
@@ -48,7 +48,7 @@ const Airport: NextPage = () => {
         ))}
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default Airport;
+export default Airport

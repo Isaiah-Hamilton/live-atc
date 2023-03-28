@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link'
 
 const Footer = () => {
   return (
@@ -17,7 +17,7 @@ const Footer = () => {
         <Link href="https://github.com/isaiah-hamilton/live-atc">Github</Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

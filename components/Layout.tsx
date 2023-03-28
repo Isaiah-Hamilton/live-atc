@@ -1,14 +1,14 @@
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from './Navbar'
+import Footer from './Footer'
 
 type Props = {
-  hideNavbar?: boolean;
-  hideFooter?: boolean;
-  children: React.ReactNode;
-};
+  hideNavbar?: boolean
+  hideFooter?: boolean
+  children: React.ReactNode
+}
 
 const Layout = (props: Props) => {
-  const { hideNavbar = false, hideFooter = false, children } = props;
+  const { hideNavbar = false, hideFooter = false, children } = props
 
   return (
     <div className="bg-white text-gray-800 min-h-screen px-7">
@@ -16,7 +16,7 @@ const Layout = (props: Props) => {
       <main>{children}</main>
       {!hideFooter && <Footer />}
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout
