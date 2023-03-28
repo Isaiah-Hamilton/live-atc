@@ -1,9 +1,9 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
   images: {
-    domains: [
-      'github.com',
-      'ui-avatars.com',
-      'ecymmfjqjfxjgydzysng.supabase.co',
-    ],
+    domains: ['ecymmfjqjfxjgydzysng.supabase.co'],
   },
 }
+
+module.exports = nextConfig
