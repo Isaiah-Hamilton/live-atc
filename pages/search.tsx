@@ -43,7 +43,7 @@ const Search: NextPage = ({ airports }: any) => {
                 {airport.icao} - {airport.full_name}
               </h2>
               <p className="text-gray-500">
-                {airport.city}, {airport.state}
+                {airport?.city}, {airport?.region}, {airport?.country}
               </p>
             </div>
           </Link>
