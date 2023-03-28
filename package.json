@@ -6,15 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier --write \"./{pages,components,lib,styles}/**/*.{ts,tsx,js,jsx,json,css}\""
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.12.1",
     "@types/node": "18.15.10",
     "@types/react": "18.0.29",
     "@types/react-dom": "18.0.11",
     "next": "13.2.4",
+    "prettier": "^2.8.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-wrap-balancer": "^0.4.0",
     "typescript": "5.0.2"
   },
   "devDependencies": {

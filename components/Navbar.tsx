@@ -1,46 +1,44 @@
-import Link from 'next/link'
-import { useState } from 'react'
-import { useRouter } from 'next/router'
+import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 const Nav = () => {
-  const router = useRouter()
-  const [search, setSearch] = useState<string>('')
+  const router = useRouter();
+  const [search, setSearch] = useState<string>("");
 
-	const handleInputChange = (event: any) => {
-		setSearch(event.target.value)
-	}
+  const handleInputChange = (event: any) => {
+    setSearch(event.target.value);
+  };
 
-	const handleInputEnter = (event: any) => {
-		if (event.key === 'Enter') {
+  const handleInputEnter = (event: any) => {
+    if (event.key === "Enter") {
       event.preventDefault();
-			router.push(`/search?airport=${search}`)
+      router.push(`/search?keyword=${search}`);
     }
-	}
+  };
 
   return (
-    <div className="flex items-center justify-between mx-8 my-4">
-			<div className='flex items-center space-x-4'>
-				<div className='font-semibold'>
-					<Link href='/'>Live ATC</Link>
-				</div>
-				<div>
-					<Link href='/airport'>Airports</Link>
-				</div>
-			</div>
-			<div className='relative'>
-				<label htmlFor="Search" className="sr-only">Search Airports</label>
-				<input
-					id='Search'
-					className="w-full border dark:border-none dark:bg-gray-100 rounded-lg outline-none transition duration-100 p-2"
-          placeholder="search airport"
+    <div className="flex items-center justify-between my-4">
+      <div className="flex items-center space-x-4">
+        <div className="font-semibold">
+          <Link href="/">Live ATC</Link>
+        </div>
+        <div>
+          <Link href="/airport">Airports</Link>
+        </div>
+      </div>
+      <div>
+        <input
           type="search"
-					value={search}
+          value={search}
+          placeholder="Search..."
           onChange={(e) => handleInputChange(e)}
-					onKeyDown={(e) => handleInputEnter(e)}
+          onKeyDown={(e) => handleInputEnter(e)}
+          className="block mt-2 w-full placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"
         />
-			</div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;
