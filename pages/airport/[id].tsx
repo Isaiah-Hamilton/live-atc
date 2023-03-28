@@ -18,6 +18,7 @@ export const getServerSideProps = async (context: any) => {
 
   await supabase
     .from("airports")
+    // @ts-ignore
     .update({ views: airports["views"] + 1 })
     .eq("icao", params!.id?.toUpperCase());
 
@@ -32,9 +33,9 @@ export const getServerSideProps = async (context: any) => {
   return { props: { data } };
 };
 
-const Airport: NextPage = ({ data }) => {
+const Airport: NextPage = ({ data }: any) => {
   const router = useRouter();
-  const { id } = router.query;
+  const { id }: any = router.query;
   const [frequency, setFrequency] = useState<string | null>(null);
   const [frequencyName, setFrequencyName] = useState<string | null>(null);
 
@@ -43,7 +44,7 @@ const Airport: NextPage = ({ data }) => {
       <div className="md:flex md:justify-between">
         <div className="space-y-4 w-full h-max">
           <h1 className="text-xl md:text-2xl font-medium">
-            {frequencyName === null ? `${id.toUpperCase()}` : frequencyName}
+            {frequencyName === null ? `${id?.toUpperCase()}` : frequencyName}
           </h1>
           <div className="relative w-full h-72 md:h-96">
             <Image

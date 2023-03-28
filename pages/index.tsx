@@ -8,8 +8,8 @@ import Section from "../components/Section";
 import Balancer from "react-wrap-balancer";
 
 const Home: NextPage = () => {
-  const [featuredData, setFeaturedData] = useState([]);
-  const [popularData, setPopularData] = useState([]);
+  const [featuredData, setFeaturedData] = useState<any>([]);
+  const [popularData, setPopularData] = useState<any>([]);
   useEffect(() => {
     const fetchFeaturedData = async () => {
       let { data: airports } = await supabase

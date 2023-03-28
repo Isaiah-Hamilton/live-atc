@@ -24,7 +24,7 @@ export const getServerSideProps = async (context: any) => {
   return { props: { airports } };
 };
 
-const Search: NextPage = ({ airports }) => {
+const Search: NextPage = ({ airports }: any) => {
   const router = useRouter();
   const { keyword } = router.query;
 

@@ -7,7 +7,7 @@ import Layout from "../../components/Layout";
 import Balancer from "react-wrap-balancer";
 
 const Airport: NextPage = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
