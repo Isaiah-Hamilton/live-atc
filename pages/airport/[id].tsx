@@ -41,7 +41,7 @@ const Airport: NextPage = ({ data }: any) => {
 
   return (
     <Layout>
-      <div className="md:flex md:justify-between">
+      <div className="md:flex md:justify-between mt-10">
         <div className="space-y-4 w-full h-max">
           <h1 className="text-xl md:text-2xl font-medium">
             {frequencyName === null ? `${id?.toUpperCase()}` : frequencyName}
