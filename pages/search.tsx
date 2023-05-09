@@ -30,7 +30,7 @@ const Search: NextPage = ({ airports }: any) => {
       <h1 className="text-4xl font-semibold mt-4 mb-8">Search for: {keyword}</h1>
       <div className="grid gap-x-6 gap-y-12 grid-cols-1">
         {airports?.map((airport: any, i: number) => (
-          <Link className="flex space-x-4 h-[200px]" href={`/airport/${airport.icao}`} key={i}>
+          <Link className="flex space-x-4 h-[200px] w-fit" href={`/airport/${airport.icao}`} key={i}>
             <Image
               className="rounded-lg"
               src={`${SUPABASE_URL}/storage/v1/object/public/airports/${airport.icao}.jpg`}
