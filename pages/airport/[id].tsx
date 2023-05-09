@@ -69,7 +69,7 @@ const Airport: NextPage = ({ data }: any) => {
           <h1 className="text-2xl font-medium">Frequency</h1>
           <div>
             <ul className={`overflow-y-scroll overflow-hidden frequency_height`}>
-              {data.json.frequency?.map((element: any, i: number) => {
+              {data.json?.frequency?.map((element: any, i: number) => {
                 return (
                   <li
                     key={i}
