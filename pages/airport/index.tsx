@@ -26,7 +26,7 @@ const Airport: NextPage = () => {
       <h1 className="text-4xl font-semibold mt-4 mb-8">Airports</h1>
       <div className="grid gap-x-6 gap-y-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {data?.map((airport: any, i: number) => (
-          <Link href={`/airport/${airport?.icao}`} key={i}>
+          <Link href={`/airport/${airport?.icao}`} className="hover:scale-105 transition ease-in-out" key={i}>
             <div className="w-full h-4/5">
               <img
                 className="w-full h-full rounded-lg"
