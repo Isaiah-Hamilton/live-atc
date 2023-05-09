@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <div className={`flex items-center justify-between pb-2 pr-3`}>
+    <footer className={`flex items-center justify-between pb-2 pr-3`}>
       <div className="flex items-center">
         <Link href="/" className="font-semibold">
           Live ATC
@@ -16,7 +16,7 @@ const Footer = () => {
         <Link href="https://twitter.com/isaiah7hamilton">Twitter</Link>
         <Link href="https://github.com/isaiah-hamilton/live-atc">Github</Link>
       </div>
-    </div>
+    </footer>
   )
 }
 
