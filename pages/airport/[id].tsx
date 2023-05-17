@@ -7,7 +7,7 @@ import supabase, { SUPABASE_URL } from '../../lib/supabase'
 
 export const getServerSideProps = async (context: any) => {
   const params = context.params
-  const response = await fetch(`https://atc-api.deno.dev/${params!.id}`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${params!.id}`)
   const data = await response.json()
 
   let { data: airports } = await supabase
