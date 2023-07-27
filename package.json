@@ -6,24 +6,20 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "prettier": "prettier --write \"./{pages,components,lib,styles}/**/*.{ts,tsx,js,jsx,json,css}\""
+    "lint": "next lint"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.12.1",
-    "@types/node": "18.15.10",
-    "@types/react": "18.0.29",
-    "@types/react-dom": "18.0.11",
-    "next": "13.4.13-canary.1",
-    "prettier": "^2.8.7",
+    "@types/node": "20.4.5",
+    "@types/react": "18.2.17",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.45.0",
+    "eslint-config-next": "13.4.12",
+    "next": "13.4.12",
+    "postcss": "8.4.27",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-wrap-balancer": "^0.4.0",
-    "typescript": "5.0.2"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.7"
+    "tailwindcss": "3.3.3",
+    "typescript": "5.1.6"
   }
 }
