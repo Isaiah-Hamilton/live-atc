@@ -5,30 +5,22 @@ import Layout from '@/components/Layout'
 import supabase from '@/lib/supabase'
 
 export const getServerSideProps = async (context: any) => {
-  const { keyword } = context.query
+  const { id } = context.query
 
-  let { data: airports } = await supabase.from('airports').select('*')
-
-  if (!airports) {
-    return {
-      props: {
-        notFound: true,
-      },
-    }
-  }
+  let { data: airports } = await supabase.from('airports').select('*').eq('id', id.toUpperCase())
 
   return { props: { airports } }
 }
 
 const Search: NextPage = ({ airports }: any) => {
   const router = useRouter()
-  const { keyword } = router.query
+  const { id } = router.query
 
   return (
     <Layout>
       <div className='h-screen'>
-        <h1 className="text-4xl font-semibold mt-8 mb-6">Search for: {keyword}</h1>
-        {airports?.length < 0 ? (
+        <h1 className="text-4xl font-semibold mt-8 mb-6">Search for: {id}</h1>
+        {airports?.length > 0 ? (
           <div className="grid gap-6 grid-cols-1">
             {airports?.map((airport: any, i: number) => (
               <div key={airport.id}>

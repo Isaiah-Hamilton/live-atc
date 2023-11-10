@@ -14,7 +14,7 @@ const Nav = () => {
   const handleInputEnter = (event: any) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      router.push(`/search?keyword=${search}`);
+      router.push(`/search?id=${search}`);
     }
   };
 
