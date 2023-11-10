@@ -5,9 +5,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const id = req.query.id
 
   const { data: frequencies, error } = await supabase
-    .from('airport frequencies')
+    .from('airport_frequencies')
     .select('*')
-    .eq('id', id)
+    .eq('airport', id)
   
   if (error) {
     return res.status(500).json({ error })

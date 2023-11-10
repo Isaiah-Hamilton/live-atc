@@ -6,7 +6,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (!airport) {
     const { data: frequencies, error } = await supabase
-      .from('airport frequencies')
+      .from('airport_frequencies')
       .select('*')
 
     if (error) {
