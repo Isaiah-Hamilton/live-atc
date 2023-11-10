@@ -7,9 +7,7 @@ import Section from "../components/Section";
 export const getServerSideProps = async ({ query }: any) => {
   const { lat, lon } = query;
 
-  const popularResponse = await fetch(
-    `http://localhost:3000/api/airport/popular`,
-  );
+  const popularResponse = await fetch(`${process.env.API_URL}/api/airport/popular`);
   const popularData = await popularResponse.json();
 
   return {
@@ -24,7 +22,7 @@ export const getServerSideProps = async ({ query }: any) => {
 const Home: NextPage = ({ popularAirports }: any) => {
   const router = useRouter();
   const RandomAirport = async () => {
-    const res = await fetch(`http://localhost:3000/api/airport`)
+    const res = await fetch(`${process.env.API_URL}/api/airport`)
     const data = await res.json()
     const RandomAirport = data.airport[Math.floor(Math.random() * data.airport.length)]
     router.push(`/airport/${RandomAirport.id}`)

@@ -6,14 +6,10 @@ import { PlayIcon, PauseIcon, MuteIcon, MutedIcon } from "@/components/Icons";
 
 export const getServerSideProps = async (context: any) => {
   const params = context.params;
-  const airportResponse = await fetch(
-    `http://localhost:3000/api/airport/${params!.id}`,
-  );
+  const airportResponse = await fetch(`${process.env.API_URL}/api/airport/${params!.id}`);
   const airportData = await airportResponse.json();
 
-  const frequencyResponse = await fetch(
-    `http://localhost:3000/api/airport/frequency/${params!.id}`,
-  );
+  const frequencyResponse = await fetch(`${process.env.API_URL}/api/airport/frequency/${params!.id}`);
   const frequencyData = await frequencyResponse.json();
 
   const flightRadarResponse = await fetch(

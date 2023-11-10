@@ -3,7 +3,7 @@ import Link from "next/link";
 import Layout from "../../components/Layout";
 
 export const getServerSideProps = async () => {
-  const response = await fetch(`http://localhost:3000/api/airport`);
+  const response = await fetch(`${process.env.API_URL}/api/airport`);
   const data = await response.json();
 
   return {
