@@ -55,29 +55,6 @@ const Nav = () => {
       </nav>
     </header>
   );
-
-  // return (
-  //   <div classNameName="flex items-center justify-between mt-4 mb-6">
-  //     <div classNameName="flex items-center space-x-4">
-  //       <div classNameName="font-semibold">
-  //         <Link href="/">Live ATC</Link>
-  //       </div>
-  //       <div>
-  //         <Link href="/airport">Airports</Link>
-  //       </div>
-  //     </div>
-  //     <div>
-  //       <input
-  //         type="search"
-  //         value={search}
-  //         placeholder="Search..."
-  //         onChange={(e) => handleInputChange(e)}
-  //         onKeyDown={(e) => handleInputEnter(e)}
-  //         classNameName="block mt-2 w-[295px] placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"
-  //       />
-  //     </div>
-  //   </div>
-  // );
 };
 
 export default Nav;
