@@ -8,7 +8,9 @@ import Card from "@/components/Card";
 export const getServerSideProps = async ({ query }: any) => {
   const { lat, lon } = query;
 
-  const popularResponse = await fetch(`${process.env.API_URL}/api/airport/popular`);
+  const popularResponse = await fetch(
+    `${process.env.API_URL}/api/airport/popular`,
+  );
   const popularData = await popularResponse.json();
 
   return {
@@ -23,11 +25,12 @@ export const getServerSideProps = async ({ query }: any) => {
 const Home: NextPage = ({ popularAirports }: any) => {
   const router = useRouter();
   const RandomAirport = async () => {
-    const res = await fetch(`${process.env.API_URL}/api/airport`)
-    const data = await res.json()
-    const RandomAirport = data.airport[Math.floor(Math.random() * data.airport.length)]
-    router.push(`/airport/${RandomAirport.id}`)
-  }
+    const res = await fetch(`${process.env.API_URL}/api/airport`);
+    const data = await res.json();
+    const RandomAirport =
+      data.airport[Math.floor(Math.random() * data.airport.length)];
+    router.push(`/airport/${RandomAirport.id}`);
+  };
   return (
     <Layout>
       <Section>
@@ -62,11 +65,13 @@ const Home: NextPage = ({ popularAirports }: any) => {
         <h1 className="text-4xl font-semibold">Popular</h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 py-8">
           {popularAirports?.map((airport: any) => (
-            <Card airport={airport} />
+            <div key={airport.id}>
+              <Card airport={airport} />
+            </div>
           ))}
         </div>
       </Section>
-    </Layout >
+    </Layout>
   );
 };
 

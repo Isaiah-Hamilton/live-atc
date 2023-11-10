@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import Link from "next/link";
 import Layout from "@/components/Layout";
 import Card from "@/components/Card";
 
@@ -20,7 +19,9 @@ const Airport: NextPage = ({ airports }: any) => {
       <h1 className="text-4xl font-semibold mt-8 mb-6">Airports</h1>
       <div className="grid gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
         {airports?.map((airport: any) => (
-          <Card airport={airport} />
+          <div key={airport.id}>
+            <Card airport={airport} />
+          </div>
         ))}
       </div>
     </Layout>
