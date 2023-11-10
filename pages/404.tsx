@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import Layout from '../components/Layout'
+import Layout from '@/components/Layout'
 
 const ErrorPage: NextPage = () => {
   const router = useRouter()

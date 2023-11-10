@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import Layout from '../components/Layout'
+import Layout from '@/components/Layout'
 import supabase from '@/lib/supabase'
 
 export const getServerSideProps = async (context: any) => {
