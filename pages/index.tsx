@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import type { NextPage } from "next";
-import Layout from "../components/Layout";
-import Section from "../components/Section";
+import Layout from "@/components/Layout";
+import Section from "@/components/Section";
+import Card from "@/components/Card";
 
 export const getServerSideProps = async ({ query }: any) => {
   const { lat, lon } = query;
@@ -61,17 +62,7 @@ const Home: NextPage = ({ popularAirports }: any) => {
         <h1 className="text-4xl font-semibold">Popular</h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 py-8">
           {popularAirports?.map((airport: any) => (
-            <div key={airport.id}>
-              <Link href={`/airport/${airport.id}`}>
-                <div className="h-full py-4 px-5 rounded-xl border border-[#09131d]">
-                  <h3 className="text-xl font-semibold">{airport.id}</h3>
-                  <p className="font-medium">{airport.name}</p>
-                  <p className="text-sm">
-                    {airport?.city}, {airport?.region}
-                  </p>
-                </div>
-              </Link>
-            </div>
+            <Card airport={airport} />
           ))}
         </div>
       </Section>
