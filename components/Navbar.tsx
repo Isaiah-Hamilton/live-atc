@@ -34,7 +34,7 @@ const Nav = () => {
         <div className="hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
           <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:ps-7">
             <Link
-              className="font-medium text-gray-500 hover:text-gray-400 sm:py-6"
+              className="font-medium text-neutral-500 hover:text-neutral-800"
               href="/airport"
             >
               Airports
