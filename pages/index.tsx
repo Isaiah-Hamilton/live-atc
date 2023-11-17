@@ -1,9 +1,16 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import type { NextPage } from "next";
+import { Button, buttonVariants } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import Layout from "@/components/Layout";
 import Section from "@/components/Section";
-import Card from "@/components/Card";
 
 export const getServerSideProps = async ({ query }: any) => {
   const { lat, lon } = query;
@@ -45,18 +52,12 @@ const Home: NextPage = ({ popularAirports }: any) => {
             </p>
           </div>
           <div className="w-fit mx-auto flex items-center space-x-4 font-medium">
-            <Link
-              href="/airport"
-              className="bg-[#232c34] border border-[#09131d] py-3 px-6 rounded-xl text-white"
-            >
+            <Link href="/airport" className={buttonVariants()}>
               Listen Now
             </Link>
-            <button
-              onClick={() => RandomAirport()}
-              className="border border-[#09131d] py-3 px-6 rounded-xl text-[#232c34]"
-            >
+            <Button variant="outline" onClick={() => RandomAirport()}>
               Random Airport
-            </button>
+            </Button>
           </div>
         </div>
       </Section>
@@ -65,9 +66,21 @@ const Home: NextPage = ({ popularAirports }: any) => {
         <h1 className="text-4xl font-semibold">Popular</h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 py-8">
           {popularAirports?.map((airport: any) => (
-            <div key={airport.id}>
-              <Card airport={airport} />
-            </div>
+            <Card key={airport.id}>
+              <Link href={`/airport/${airport.id}`}>
+                <CardHeader>
+                  <CardTitle>{airport.id}</CardTitle>
+                  <CardDescription className="text-lg">
+                    {airport.name}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm">
+                    {airport?.city}, {airport?.region}
+                  </p>
+                </CardContent>
+              </Link>
+            </Card>
           ))}
         </div>
       </Section>
