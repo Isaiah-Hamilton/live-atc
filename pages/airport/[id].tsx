@@ -3,13 +3,8 @@ import { NextPage } from "next";
 import Layout from "@/components/Layout";
 import { ArrivalsTable, DeparturesTable } from "@/components/Table";
 import { PlayIcon, PauseIcon, MuteIcon, MutedIcon } from "@/components/Icons";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
 
 export const getServerSideProps = async (context: any) => {
   const params = context.params;
@@ -118,36 +113,38 @@ const Airport: NextPage = ({ airport, frequencies, flightRadar }: any) => {
       </div>
       <div className="my-8 grid grid-cols-1 lg:grid-cols-10 gap-14">
         <div className="col-span-3">
-          <h2 className="text-2xl font-medium">Frequencies</h2>
-          <div
-            className="grid grid-cols-1 2xl:grid-cols-2 gap-4 mt-8 overflow-auto"
-            style={{ height: `${height - 64}px` }}
-          >
-            {frequencies?.map((frequency: any) => {
-              const Frequency = frequency.frequency.toFixed(3);
-              return (
-                <Card key={airport.id}>
-                  <button
-                    className="text-left"
-                    onClick={() => {
-                      setFrequency({
-                        audio: frequency.audio,
-                        name: frequency.name,
-                      });
-                    }}
-                    disabled={!frequency.status}
-                  >
-                    <CardHeader>
-                      <CardTitle>{frequency.name}</CardTitle>
-                      <CardDescription className="text-lg">
-                        {Frequency}
-                      </CardDescription>
-                    </CardHeader>
-                  </button>
-                </Card>
-              );
-            })}
-          </div>
+          <h2 className="text-2xl font-medium mb-4">Frequencies</h2>
+          <ScrollArea style={{ height: `${height - 64}px` }}>
+            <div className="pr-4">
+              <div className="mt-8" style={{ height: `${height - 64}px` }}>
+                {frequencies?.map((frequency: any) => {
+                  const Frequency = frequency.frequency.toFixed(3);
+                  return (
+                    <>
+                      <button
+                        className="text-left w-full"
+                        onClick={() => {
+                          setFrequency({
+                            audio: frequency.audio,
+                            name: frequency.name,
+                          });
+                        }}
+                        disabled={!frequency.status}
+                      >
+                        <h3 className="text-lg font-medium">
+                          {frequency.name}
+                        </h3>
+                        <span className="text-sm text-neutral-500">
+                          {Frequency}
+                        </span>
+                      </button>
+                      <Separator className="my-4 last:hidden" />
+                    </>
+                  );
+                })}
+              </div>
+            </div>
+          </ScrollArea>
         </div>
         <div id="targetHeight" className="col-span-7 h-fit hidden lg:block">
           <h2 className="text-center text-2xl font-medium">Arrivals</h2>
