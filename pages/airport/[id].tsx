@@ -3,13 +3,24 @@ import { NextPage } from "next";
 import Layout from "@/components/Layout";
 import { ArrivalsTable, DeparturesTable } from "@/components/Table";
 import { PlayIcon, PauseIcon, MuteIcon, MutedIcon } from "@/components/Icons";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export const getServerSideProps = async (context: any) => {
   const params = context.params;
-  const airportResponse = await fetch(`${process.env.API_URL}/api/airport/${params!.id}`);
+  const airportResponse = await fetch(
+    `${process.env.API_URL}/api/airport/${params!.id}`,
+  );
   const airportData = await airportResponse.json();
 
-  const frequencyResponse = await fetch(`${process.env.API_URL}/api/airport/frequency/${params!.id}`);
+  const frequencyResponse = await fetch(
+    `${process.env.API_URL}/api/airport/frequency/${params!.id}`,
+  );
   const frequencyData = await frequencyResponse.json();
 
   const flightRadarResponse = await fetch(
@@ -93,22 +104,13 @@ const Airport: NextPage = ({ airport, frequencies, flightRadar }: any) => {
               <div className="flex items-center space-x-2">
                 <audio id="audio" src={frequency.audio} />
                 <button onClick={() => handlePlayPause()}>
-                  {!isPlaying ? (
-                    <PlayIcon />
-                  ) : (
-                    <PauseIcon />
-                  )}
+                  {!isPlaying ? <PlayIcon /> : <PauseIcon />}
                 </button>
                 <div>LIVE</div>
               </div>
               <div className="text-lg font-medium">{frequency.name}</div>
               <button onClick={() => handleMute()}>
-                {!isMuted ? (
-                  <MuteIcon />
-                ) : (
-                  <MutedIcon />
-                )
-                }
+                {!isMuted ? <MuteIcon /> : <MutedIcon />}
               </button>
             </div>
           </>
@@ -124,31 +126,42 @@ const Airport: NextPage = ({ airport, frequencies, flightRadar }: any) => {
             {frequencies?.map((frequency: any) => {
               const Frequency = frequency.frequency.toFixed(3);
               return (
-                <button
-                  key={frequency.id}
-                  className={`h-full py-4 px-5 rounded-xl border border-[#09131d] text-left ${frequency.status ? null : "cursor-not-allowed"
-                    }`}
-                  onClick={() => {
-                    setFrequency({
-                      audio: frequency.audio,
-                      name: frequency.name,
-                    });
-                  }}
-                  disabled={!frequency.status}
-                >
-                  <h3 className="text-lg font-semibold">{frequency.name}</h3>
-                  <p>Status: {frequency.status ? "UP" : "DOWN"}</p>
-                  <p className="font-medium">{Frequency}</p>
-                </button>
+                <Card key={airport.id}>
+                  <button
+                    className="text-left"
+                    onClick={() => {
+                      setFrequency({
+                        audio: frequency.audio,
+                        name: frequency.name,
+                      });
+                    }}
+                    disabled={!frequency.status}
+                  >
+                    <CardHeader>
+                      <CardTitle>{frequency.name}</CardTitle>
+                      <CardDescription className="text-lg">
+                        {Frequency}
+                      </CardDescription>
+                    </CardHeader>
+                  </button>
+                </Card>
               );
             })}
           </div>
         </div>
         <div id="targetHeight" className="col-span-7 h-fit hidden lg:block">
           <h2 className="text-center text-2xl font-medium">Arrivals</h2>
-          <ArrivalsTable type={true} flightRadar={flightRadar.airport.pluginData.schedule.arrivals.data} />
+          <ArrivalsTable
+            type={true}
+            flightRadar={flightRadar.airport.pluginData.schedule.arrivals.data}
+          />
           <h2 className="text-center text-2xl font-medium mt-16">Departures</h2>
-          <DeparturesTable type={false} flightRadar={flightRadar.airport.pluginData.schedule.departures.data} />
+          <DeparturesTable
+            type={false}
+            flightRadar={
+              flightRadar.airport.pluginData.schedule.departures.data
+            }
+          />
         </div>
       </div>
     </Layout>
