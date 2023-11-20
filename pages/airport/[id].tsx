@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { NextPage } from "next";
 import Layout from "@/components/Layout";
-import { ArrivalsTable, DeparturesTable } from "@/components/Table";
+import { ArrivalsTable, DeparturesTable } from "@/components/Tables";
 import { PlayIcon, PauseIcon, MuteIcon, MutedIcon } from "@/components/Icons";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const getServerSideProps = async (context: any) => {
   const params = context.params;
@@ -147,18 +148,28 @@ const Airport: NextPage = ({ airport, frequencies, flightRadar }: any) => {
           </ScrollArea>
         </div>
         <div id="targetHeight" className="col-span-7 h-fit hidden lg:block">
-          <h2 className="text-center text-2xl font-medium">Arrivals</h2>
-          <ArrivalsTable
-            type={true}
-            flightRadar={flightRadar.airport.pluginData.schedule.arrivals.data}
-          />
-          <h2 className="text-center text-2xl font-medium mt-16">Departures</h2>
-          <DeparturesTable
-            type={false}
-            flightRadar={
-              flightRadar.airport.pluginData.schedule.departures.data
-            }
-          />
+          <Tabs defaultValue="arrivals">
+            <TabsList className="flex w-fit mx-auto mb-8">
+              <TabsTrigger value="arrivals">Arrivals</TabsTrigger>
+              <TabsTrigger value="departures">Departures</TabsTrigger>
+            </TabsList>
+            <TabsContent value="arrivals">
+              <ArrivalsTable
+                type={true}
+                flightRadar={
+                  flightRadar.airport.pluginData.schedule.arrivals.data
+                }
+              />
+            </TabsContent>
+            <TabsContent value="departures">
+              <DeparturesTable
+                type={false}
+                flightRadar={
+                  flightRadar.airport.pluginData.schedule.departures.data
+                }
+              />
+            </TabsContent>
+          </Tabs>
         </div>
       </div>
     </Layout>

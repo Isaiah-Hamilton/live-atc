@@ -12,6 +12,7 @@
     "@radix-ui/react-scroll-area": "^1.0.5",
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-tabs": "^1.0.4",
     "@supabase/supabase-js": "^2.31.0",
     "@types/node": "20.4.5",
     "@types/react": "18.2.17",
