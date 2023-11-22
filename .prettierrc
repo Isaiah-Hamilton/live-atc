@@ -1,14 +1,9 @@
 {
-  "arrowParens": "always",
-  "bracketSpacing": true,
-  "embeddedLanguageFormatting": "auto",
-  "endOfLine": "lf",
-  "insertPragma": false,
-  "proseWrap": "preserve",
-  "requirePragma": false,
-  "singleQuote": true,
-  "tabWidth": 2,
   "trailingComma": "es5",
-  "useTabs": false,
-  "printWidth": 100
+  "tabWidth": 2,
+  "semi": false,
+  "singleQuote": true,
+  "printWidth": 100,
+  "endOfLine": "lf",
+  "pluginSearchDirs": false,
 }
