@@ -103,6 +103,9 @@ const Airport: NextPage = ({ airport, frequencies, flightRadar }: any) => {
           <ScrollArea style={{ height: `${height - 64}px` }}>
             <div className="pr-4">
               <div className="mt-8" style={{ height: `${height - 64}px` }}>
+                {frequencies?.length === 0 && (
+                  <div>No Frequencies Found</div>
+                )}
                 {frequencies?.map((frequency: any) => {
                   const Frequency = frequency.frequency.toFixed(3);
                   return (
