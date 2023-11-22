@@ -6,6 +6,7 @@ import { PlayIcon, PauseIcon, MuteIcon, MutedIcon } from "@/components/Icons";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent } from "@/components/ui/card";
 
 export const getServerSideProps = async (context: any) => {
   const params = context.params;
@@ -83,35 +84,19 @@ const Airport: NextPage = ({ airport, frequencies, flightRadar }: any) => {
 
   return (
     <Layout>
-      <div className="flex flex-col xl:flex-row xl:item-center space-y-4 xl:space-y-0 bg-[#232c34] border border-[#09131d] rounded-xl text-white p-4 mt-4">
-        <div className="w-full">
-          <h2 className="text-sm text-gray-300">
-            {airport.id.slice(1)}/{airport.id}
-          </h2>
-          <h1 className="text-2xl font-medium">{airport.name}</h1>
-          <h2 className="text-gray-300">
-            {airport.city}, {airport.region}
-          </h2>
-        </div>
-        {frequency.audio && (
-          <>
-            <div className="h-[1px] xl:hidden bg-gray-300" />
-            <div className="flex items-center justify-evenly w-full">
-              <div className="flex items-center space-x-2">
-                <audio id="audio" src={frequency.audio} />
-                <button onClick={() => handlePlayPause()}>
-                  {!isPlaying ? <PlayIcon /> : <PauseIcon />}
-                </button>
-                <div>LIVE</div>
-              </div>
-              <div className="text-lg font-medium">{frequency.name}</div>
-              <button onClick={() => handleMute()}>
-                {!isMuted ? <MuteIcon /> : <MutedIcon />}
-              </button>
-            </div>
-          </>
-        )}
+      <div className="mt-5">
+        <p className="text-lg font-medium tracking-wide leading-none">
+          {airport.id}
+        </p>
+        <h1 className="text-4xl font-semibold tracking-tight">
+          {airport.name}
+        </h1>
+        <p>
+          {airport.city}, {airport.region}
+        </p>
+        <Separator className="mb-10 mt-5" />
       </div>
+
       <div className="my-8 grid grid-cols-1 lg:grid-cols-10 gap-14">
         <div className="col-span-3">
           <h2 className="text-2xl font-medium mb-4">Frequencies</h2>
@@ -172,6 +157,27 @@ const Airport: NextPage = ({ airport, frequencies, flightRadar }: any) => {
           </Tabs>
         </div>
       </div>
+      {frequency.audio && (
+        <div className="fixed inset-x-0 bottom-0 z-10">
+          <Card className="w-1/2 mx-auto mb-4 shadow-lg">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <audio id="audio" src={frequency.audio} />
+                  <button onClick={() => handlePlayPause()}>
+                    {!isPlaying ? <PlayIcon /> : <PauseIcon />}
+                  </button>
+                  {isPlaying ? <div>LIVE</div> : <div>PAUSED</div>}
+                </div>
+                <div className="text-lg font-medium">{frequency.name || "Select any Frequency"}</div>
+                <button onClick={() => handleMute()}>
+                  {!isMuted ? <MuteIcon /> : <MutedIcon />}
+                </button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
     </Layout>
   );
 };
