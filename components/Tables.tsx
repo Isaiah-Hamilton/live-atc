@@ -54,7 +54,7 @@ const ArrivalsTable = (props: any) => {
               <span>{item.flight.airport.origin.position.region.city} </span>
               <Link
                 href={item.flight.airport.origin.code.icao}
-                className="text-blue-500 cursor-pointer"
+                className="text-indigo-500 cursor-pointer"
               >
                 ({item.flight.airport.origin.code.iata})
               </Link>
@@ -109,7 +109,7 @@ const DeparturesTable = (props: any) => {
               </span>
               <Link
                 href={item.flight.airport.destination.code.icao}
-                className="text-blue-500 cursor-pointer"
+                className="text-indigo-500 cursor-pointer"
               >
                 ({item.flight.airport.destination.code.iata})
               </Link>
