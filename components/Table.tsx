@@ -1,9 +1,9 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const formatTime = (time: number) => {
   const date = new Date(time * 1000);
   let hours = date.getHours();
-  const minutes = "0" + date.getMinutes();
+  const minutes = '0' + date.getMinutes();
   let PM = false;
 
   if (hours > 12) {
@@ -13,7 +13,7 @@ const formatTime = (time: number) => {
     hours = 12;
   }
 
-  const formattedTime = `${hours}:${minutes.substr(-2)} ${PM ? "PM" : "AM"}`;
+  const formattedTime = `${hours}:${minutes.substr(-2)} ${PM ? 'PM' : 'AM'}`;
   return formattedTime;
 };
 
@@ -33,38 +33,36 @@ const ArrivalsTable = (props: any) => {
         </div>
       </div>
       <div>
-        {flightRadar
-          .slice(0, 10)
-          .map((element: any) => {
-            return (
-              <div
-                key={element.flight.time.scheduled.arrival}
-                className="grid grid-cols-6 gap-4 border-b border-gray-200 last:border-none text-sm py-1.5"
-              >
-                <div>{formatTime(element.flight.time.scheduled.arrival)}</div>
-                <div>{element.flight.identification.callsign}</div>
-                <div>
-                  <span>{element.flight.airport.origin.position.region.city} </span>
-                  <Link
-                    href={element.flight.airport.origin.code.icao}
-                    className="text-blue-500 cursor-pointer"
-                  >
-                    ({element.flight.airport.origin.code.iata})
-                  </Link>
-                </div>
-                <div>{element.flight.airline.short}</div>
-                <div>{element.flight.aircraft.model.code}</div>
-                <div>
-                  {element.flight.status.generic.status.text}{" "}
-                  {formatTime(element.flight.status.generic.eventTime.utc)}
-                </div>
+        {flightRadar.slice(0, 10).map((element: any) => {
+          return (
+            <div
+              key={element.flight.time.scheduled.arrival}
+              className="grid grid-cols-6 gap-4 border-b border-gray-200 last:border-none text-sm py-1.5"
+            >
+              <div>{formatTime(element.flight.time.scheduled.arrival)}</div>
+              <div>{element.flight.identification.callsign}</div>
+              <div>
+                <span>{element.flight.airport.origin.position.region.city} </span>
+                <Link
+                  href={element.flight.airport.origin.code.icao}
+                  className="text-blue-500 cursor-pointer"
+                >
+                  ({element.flight.airport.origin.code.iata})
+                </Link>
               </div>
-            );
-          })}
+              <div>{element.flight.airline.short}</div>
+              <div>{element.flight.aircraft.model.code}</div>
+              <div>
+                {element.flight.status.generic.status.text}{' '}
+                {formatTime(element.flight.status.generic.eventTime.utc)}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
-  )
-}
+  );
+};
 
 const DeparturesTable = (props: any) => {
   const { flightRadar } = props;
@@ -82,39 +80,35 @@ const DeparturesTable = (props: any) => {
         </div>
       </div>
       <div>
-        {flightRadar
-          .slice(0, 10)
-          .map((element: any) => {
-            return (
-              <div
-                key={element.flight.time.scheduled.departure}
-                className="grid grid-cols-6 gap-4 border-b border-gray-200 last:border-none text-sm py-1.5"
-              >
-                <div>{formatTime(element.flight.time.scheduled.departure)}</div>
-                <div>{element.flight.identification.callsign}</div>
-                <div>
-                  <span>
-                    {element.flight.airport.destination.position.region.city}{" "}
-                  </span>
-                  <Link
-                    href={element.flight.airport.destination.code.icao}
-                    className="text-blue-500 cursor-pointer"
-                  >
-                    ({element.flight.airport.destination.code.iata})
-                  </Link>
-                </div>
-                <div>{element.flight.airline?.short}</div>
-                <div>{element.flight.aircraft.model.code}</div>
-                <div>
-                  {element.flight.status.generic.status.text}{" "}
-                  {formatTime(element.flight.status.generic.eventTime.utc)}
-                </div>
+        {flightRadar.slice(0, 10).map((element: any) => {
+          return (
+            <div
+              key={element.flight.time.scheduled.departure}
+              className="grid grid-cols-6 gap-4 border-b border-gray-200 last:border-none text-sm py-1.5"
+            >
+              <div>{formatTime(element.flight.time.scheduled.departure)}</div>
+              <div>{element.flight.identification.callsign}</div>
+              <div>
+                <span>{element.flight.airport.destination.position.region.city} </span>
+                <Link
+                  href={element.flight.airport.destination.code.icao}
+                  className="text-blue-500 cursor-pointer"
+                >
+                  ({element.flight.airport.destination.code.iata})
+                </Link>
               </div>
-            );
-          })}
+              <div>{element.flight.airline?.short}</div>
+              <div>{element.flight.aircraft.model.code}</div>
+              <div>
+                {element.flight.status.generic.status.text}{' '}
+                {formatTime(element.flight.status.generic.eventTime.utc)}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export { ArrivalsTable, DeparturesTable }
+export { ArrivalsTable, DeparturesTable };

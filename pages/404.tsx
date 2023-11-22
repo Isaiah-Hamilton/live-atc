@@ -1,10 +1,10 @@
-import { NextPage } from 'next'
-import { useRouter } from 'next/router'
-import Link from 'next/link'
-import Layout from '@/components/Layout'
+import { NextPage } from 'next';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import Layout from '@/components/Layout';
 
 const ErrorPage: NextPage = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <Layout hideNavbar hideFooter>
@@ -34,7 +34,7 @@ const ErrorPage: NextPage = () => {
           <div className="flex items-center w-full mt-6 gap-x-3 shrink-0 sm:w-auto">
             <button
               onClick={() => {
-                router.back()
+                router.back();
               }}
               className="flex items-center justify-center w-1/2 px-5 py-2 text-sm gap-x-2 sm:w-auto bg-[#232c34] border border-[#09131d] rounded-xl text-white"
             >
@@ -65,7 +65,7 @@ const ErrorPage: NextPage = () => {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default ErrorPage
+export default ErrorPage;

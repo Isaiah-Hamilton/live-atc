@@ -1,11 +1,11 @@
 type Props = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 const Section = (props: Props) => {
-  const { children } = props
+  const { children } = props;
 
-  return <div className="container mx-auto relative py-10">{children}</div>
-}
+  return <div className="container mx-auto relative py-10">{children}</div>;
+};
 
-export default Section
+export default Section;

@@ -1,6 +1,6 @@
-import { NextPage } from "next";
-import Layout from "@/components/Layout";
-import Card from "@/components/Card";
+import { NextPage } from 'next';
+import Layout from '@/components/Layout';
+import Card from '@/components/Card';
 
 export const getServerSideProps = async () => {
   const response = await fetch(`${process.env.API_URL}/api/airport`);

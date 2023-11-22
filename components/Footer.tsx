@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { TwitterIcon, GithubIcon } from "./Icons";
+import Link from 'next/link';
+import { TwitterIcon, GithubIcon } from './Icons';
 
 const Footer = () => {
   return (

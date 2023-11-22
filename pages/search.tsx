@@ -1,24 +1,24 @@
-import { NextPage } from 'next'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import Layout from '@/components/Layout'
-import supabase from '@/lib/supabase'
+import { NextPage } from 'next';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Layout from '@/components/Layout';
+import supabase from '@/lib/supabase';
 
 export const getServerSideProps = async (context: any) => {
-  const { id } = context.query
+  const { id } = context.query;
 
-  let { data: airports } = await supabase.from('airports').select('*').eq('id', id.toUpperCase())
+  let { data: airports } = await supabase.from('airports').select('*').eq('id', id.toUpperCase());
 
-  return { props: { airports } }
-}
+  return { props: { airports } };
+};
 
 const Search: NextPage = ({ airports }: any) => {
-  const router = useRouter()
-  const { id } = router.query
+  const router = useRouter();
+  const { id } = router.query;
 
   return (
     <Layout>
-      <div className='h-screen'>
+      <div className="h-screen">
         <h1 className="text-4xl font-semibold mt-8 mb-6">Search for: {id}</h1>
         {airports?.length > 0 ? (
           <div className="grid gap-6 grid-cols-1">
@@ -41,7 +41,7 @@ const Search: NextPage = ({ airports }: any) => {
         )}
       </div>
     </Layout>
-  )
-}
+  );
+};
 
 export default Search;

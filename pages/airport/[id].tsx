@@ -1,21 +1,25 @@
-import { useState, useEffect } from "react";
-import { NextPage } from "next";
-import Layout from "@/components/Layout";
-import { ArrivalsTable, DeparturesTable } from "@/components/Table";
-import { PlayIcon, PauseIcon, MuteIcon, MutedIcon } from "@/components/Icons";
+import { useState, useEffect } from 'react';
+import { NextPage } from 'next';
+import Layout from '@/components/Layout';
+import { ArrivalsTable, DeparturesTable } from '@/components/Table';
+import { PlayIcon, PauseIcon, MuteIcon, MutedIcon } from '@/components/Icons';
 
 export const getServerSideProps = async (context: any) => {
   const params = context.params;
   const airportResponse = await fetch(`${process.env.API_URL}/api/airport/${params!.id}`);
   const airportData = await airportResponse.json();
 
-  const frequencyResponse = await fetch(`${process.env.API_URL}/api/airport/frequency/${params!.id}`);
+  const frequencyResponse = await fetch(
+    `${process.env.API_URL}/api/airport/frequency/${params!.id}`
+  );
   const frequencyData = await frequencyResponse.json();
 
   const flightRadarResponse = await fetch(
-    `https://api.flightradar24.com/common/v1/airport.json?code=${params!.id
-    }&plugin[]=&plugin-setting[schedule][mode]=&plugin-setting[schedule][timestamp]=${new Date().getTime() / 1000
-    }&page=1&limit=100&fleet=&token=`,
+    `https://api.flightradar24.com/common/v1/airport.json?code=${
+      params!.id
+    }&plugin[]=&plugin-setting[schedule][mode]=&plugin-setting[schedule][timestamp]=${
+      new Date().getTime() / 1000
+    }&page=1&limit=100&fleet=&token=`
   );
   const flightRadarData = await flightRadarResponse.json();
 
@@ -33,19 +37,19 @@ const Airport: NextPage = ({ airport, frequencies, flightRadar }: any) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [frequency, setFrequency] = useState({
-    audio: "",
-    name: "",
+    audio: '',
+    name: '',
   });
 
   useEffect(() => {
-    const divHeight = document.getElementById("targetHeight")?.clientHeight;
+    const divHeight = document.getElementById('targetHeight')?.clientHeight;
     if (divHeight) {
       setHeight(divHeight);
     }
   }, []);
 
   useEffect(() => {
-    const audio = document.getElementById("audio") as HTMLAudioElement;
+    const audio = document.getElementById('audio') as HTMLAudioElement;
     if (audio) {
       audio.src = frequency.audio;
       audio.play();
@@ -54,7 +58,7 @@ const Airport: NextPage = ({ airport, frequencies, flightRadar }: any) => {
   }, [frequency]);
 
   const handlePlayPause = () => {
-    const audio = document.getElementById("audio") as HTMLAudioElement;
+    const audio = document.getElementById('audio') as HTMLAudioElement;
     if (audio) {
       if (audio.paused) {
         audio.play();
@@ -67,7 +71,7 @@ const Airport: NextPage = ({ airport, frequencies, flightRadar }: any) => {
   };
 
   const handleMute = () => {
-    const audio = document.getElementById("audio") as HTMLAudioElement;
+    const audio = document.getElementById('audio') as HTMLAudioElement;
     if (audio) {
       audio.muted = !audio.muted;
       setIsMuted(!isMuted);
@@ -93,22 +97,13 @@ const Airport: NextPage = ({ airport, frequencies, flightRadar }: any) => {
               <div className="flex items-center space-x-2">
                 <audio id="audio" src={frequency.audio} />
                 <button onClick={() => handlePlayPause()}>
-                  {!isPlaying ? (
-                    <PlayIcon />
-                  ) : (
-                    <PauseIcon />
-                  )}
+                  {!isPlaying ? <PlayIcon /> : <PauseIcon />}
                 </button>
                 <div>LIVE</div>
               </div>
               <div className="text-lg font-medium">{frequency.name}</div>
               <button onClick={() => handleMute()}>
-                {!isMuted ? (
-                  <MuteIcon />
-                ) : (
-                  <MutedIcon />
-                )
-                }
+                {!isMuted ? <MuteIcon /> : <MutedIcon />}
               </button>
             </div>
           </>
@@ -126,8 +121,9 @@ const Airport: NextPage = ({ airport, frequencies, flightRadar }: any) => {
               return (
                 <button
                   key={frequency.id}
-                  className={`h-full py-4 px-5 rounded-xl border border-[#09131d] text-left ${frequency.status ? null : "cursor-not-allowed"
-                    }`}
+                  className={`h-full py-4 px-5 rounded-xl border border-[#09131d] text-left ${
+                    frequency.status ? null : 'cursor-not-allowed'
+                  }`}
                   onClick={() => {
                     setFrequency({
                       audio: frequency.audio,
@@ -137,7 +133,7 @@ const Airport: NextPage = ({ airport, frequencies, flightRadar }: any) => {
                   disabled={!frequency.status}
                 >
                   <h3 className="text-lg font-semibold">{frequency.name}</h3>
-                  <p>Status: {frequency.status ? "UP" : "DOWN"}</p>
+                  <p>Status: {frequency.status ? 'UP' : 'DOWN'}</p>
                   <p className="font-medium">{Frequency}</p>
                 </button>
               );
@@ -146,9 +142,15 @@ const Airport: NextPage = ({ airport, frequencies, flightRadar }: any) => {
         </div>
         <div id="targetHeight" className="col-span-7 h-fit hidden lg:block">
           <h2 className="text-center text-2xl font-medium">Arrivals</h2>
-          <ArrivalsTable type={true} flightRadar={flightRadar.airport.pluginData.schedule.arrivals.data} />
+          <ArrivalsTable
+            type={true}
+            flightRadar={flightRadar.airport.pluginData.schedule.arrivals.data}
+          />
           <h2 className="text-center text-2xl font-medium mt-16">Departures</h2>
-          <DeparturesTable type={false} flightRadar={flightRadar.airport.pluginData.schedule.departures.data} />
+          <DeparturesTable
+            type={false}
+            flightRadar={flightRadar.airport.pluginData.schedule.departures.data}
+          />
         </div>
       </div>
     </Layout>

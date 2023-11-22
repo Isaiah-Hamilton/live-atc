@@ -1,16 +1,14 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import type { NextPage } from "next";
-import Layout from "@/components/Layout";
-import Section from "@/components/Section";
-import Card from "@/components/Card";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import type { NextPage } from 'next';
+import Layout from '@/components/Layout';
+import Section from '@/components/Section';
+import Card from '@/components/Card';
 
 export const getServerSideProps = async ({ query }: any) => {
   const { lat, lon } = query;
 
-  const popularResponse = await fetch(
-    `${process.env.API_URL}/api/airport/popular`,
-  );
+  const popularResponse = await fetch(`${process.env.API_URL}/api/airport/popular`);
   const popularData = await popularResponse.json();
 
   return {
@@ -27,8 +25,7 @@ const Home: NextPage = ({ popularAirports }: any) => {
   const RandomAirport = async () => {
     const res = await fetch(`${process.env.API_URL}/api/airport`);
     const data = await res.json();
-    const RandomAirport =
-      data.airport[Math.floor(Math.random() * data.airport.length)];
+    const RandomAirport = data.airport[Math.floor(Math.random() * data.airport.length)];
     router.push(`/airport/${RandomAirport.id}`);
   };
   return (
@@ -40,9 +37,7 @@ const Home: NextPage = ({ popularAirports }: any) => {
               <h1>Listen to Live</h1>
               <h1>Air Traffic Control</h1>
             </div>
-            <p className="text-xl">
-              Listen up to 1,000+ live Frequencies for free
-            </p>
+            <p className="text-xl">Listen up to 1,000+ live Frequencies for free</p>
           </div>
           <div className="w-fit mx-auto flex items-center space-x-4 font-medium">
             <Link
