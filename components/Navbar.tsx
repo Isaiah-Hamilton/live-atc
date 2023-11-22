@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { MenuIcon } from "./Icons";
+import { Input } from "@/components/ui/input"
 
 const Nav = () => {
   const router = useRouter();
@@ -19,8 +20,8 @@ const Nav = () => {
   };
 
   return (
-    <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full text-sm py-3 sm:py-0">
-      <nav className="relative max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
+    <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full text-sm py-3">
+      <nav className="relative max-w-[85rem] w-full mx-auto sm:flex sm:items-center sm:justify-between">
         <div className="flex items-center justify-between">
           <Link className="flex-none text-xl font-semibold" href="/">
             Live ATC
@@ -41,13 +42,13 @@ const Nav = () => {
             </Link>
 
             <div className="flex items-center gap-x-2 sm:ms-auto">
-              <input
+              <Input
+                className="m-1"
                 type="search"
                 value={search}
-                placeholder="Search..."
+                placeholder="Search icao"
                 onChange={(e) => handleInputChange(e)}
                 onKeyDown={(e) => handleInputEnter(e)}
-                className="block mt-2 w-[295px] placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"
               />
             </div>
           </div>
