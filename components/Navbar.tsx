@@ -1,18 +1,18 @@
-import Link from "next/link";
-import { useState } from "react";
-import { useRouter } from "next/router";
-import { MenuIcon } from "./Icons";
+import Link from 'next/link';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { MenuIcon } from './Icons';
 
 const Nav = () => {
   const router = useRouter();
-  const [search, setSearch] = useState<string>("");
+  const [search, setSearch] = useState<string>('');
 
   const handleInputChange = (event: any) => {
     setSearch(event.target.value);
   };
 
   const handleInputEnter = (event: any) => {
-    if (event.key === "Enter") {
+    if (event.key === 'Enter') {
       event.preventDefault();
       router.push(`/search?id=${search}`);
     }
@@ -33,10 +33,7 @@ const Nav = () => {
         </div>
         <div className="hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
           <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:ps-7">
-            <Link
-              className="font-medium text-gray-500 hover:text-gray-400 sm:py-6"
-              href="/airport"
-            >
+            <Link className="font-medium text-gray-500 hover:text-gray-400 sm:py-6" href="/airport">
               Airports
             </Link>
 

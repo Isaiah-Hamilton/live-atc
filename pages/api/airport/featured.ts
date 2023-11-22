@@ -1,17 +1,17 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import supabase from "../../../lib/supabase";
+import { NextApiRequest, NextApiResponse } from 'next';
+import supabase from '../../../lib/supabase';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { lat, lon } = req.query;
 
   if (!lat || !lon) {
-    return res.status(400).json({ error: "Missing lat/lon" });
+    return res.status(400).json({ error: 'Missing lat/lon' });
   }
 
   const userLat = Number(lat);
   const userLon = Number(lon);
 
-  const { data: airports, error } = await supabase.from("airports").select("*");
+  const { data: airports, error } = await supabase.from('airports').select('*');
 
   if (error) {
     return res.status(500).json({ error });

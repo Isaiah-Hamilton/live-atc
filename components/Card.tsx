@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 type Props = {
   airport: any;
@@ -19,6 +19,6 @@ const AirportCard = (props: Props) => {
       </Link>
     </div>
   );
-}
+};
 
 export default AirportCard;
