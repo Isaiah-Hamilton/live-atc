@@ -13,7 +13,6 @@ const getAirports = async () => {
 
 const Page = async () => {
   const airports = await getAirports()
-  console.log(airports)
   return (
     <>
       <h1 className="text-4xl font-semibold mt-8 mb-6">Airports</h1>

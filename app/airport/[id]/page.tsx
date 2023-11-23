@@ -45,7 +45,6 @@ const Page = async ({ params }: { params: { id: string } }) => {
   const frequencies = await getFrequencies(params.id)
   const arrivals = await getArrivals(params.id)
   const departures = await getDepartures(params.id)
-  console.log(airport)
 
   return (
     <div className="mt-5">
