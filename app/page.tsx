@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 const getPopularAirports = async () => {
   const res = await fetch('http://localhost:3000/api')
@@ -21,7 +22,7 @@ const Home = async () => {
             <h1>Listen to Live</h1>
             <h1>Air Traffic Control</h1>
           </div>
-          <p className="text-xl">Listen up to 1,000+ live Frequencies for free</p>
+          <p className="text-xl">Listen to 1,000+ Live Frequencies For Free</p>
         </div>
         <div className="w-fit mx-auto flex items-center space-x-4 font-medium">
           <Link href="/airport" className={buttonVariants({ variant: 'default' })}>
@@ -36,7 +37,19 @@ const Home = async () => {
       <h1 className="text-4xl font-semibold">Popular</h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 py-8">
         {popularAirports.popularAirports.map((airport: any) => (
-          <div key={airport.id}>{airport.id}</div>
+          <Card key={airport.id}>
+            <Link href={`/airport/${airport.id}`}>
+              <CardHeader>
+                <CardTitle>{airport.id}</CardTitle>
+                <CardDescription className="text-lg">{airport.name}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm">
+                  {airport?.city}, {airport?.region}
+                </p>
+              </CardContent>
+            </Link>
+          </Card>
         ))}
       </div>
     </>
