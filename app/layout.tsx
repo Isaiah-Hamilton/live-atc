@@ -1,4 +1,5 @@
 import { ThemeProvider } from '@/components/theme-provider'
+import Navbar from '@/components/navbar'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { cn } from '@/lib/utils'
@@ -14,13 +15,19 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={cn('min-h-screen bg-background font-sans antialiased', inter.className)}>
+      <body
+        className={cn(
+          'min-h-screen bg-background font-sans antialiased container mx-auto text-primary',
+          inter.className
+        )}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>
