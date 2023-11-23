@@ -3,7 +3,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 const getPopularAirports = async () => {
-  const res = await fetch('http://localhost:3000/api')
+  const res = await fetch('http://localhost:3000/api/popular')
 
   if (!res.ok) {
     throw new Error('Failed to fetch data')
