@@ -12,8 +12,16 @@ const getPopularAirports = async () => {
   return res.json()
 }
 
+const getRandomAirport = async () => {
+  const res = await fetch(`http://localhost:3000/api/airport`)
+  const data = await res.json()
+
+  return data.airports[Math.floor(Math.random() * data.airports.length)]
+}
+
 const Home = async () => {
   const popularAirports = await getPopularAirports()
+  const randomAirport = await getRandomAirport()
   return (
     <>
       <div className="w-fit mx-auto space-y-6">
@@ -28,7 +36,10 @@ const Home = async () => {
           <Link href="/airport" className={buttonVariants({ variant: 'default' })}>
             Listen Now
           </Link>
-          <Link href="/" className={buttonVariants({ variant: 'outline' })}>
+          <Link
+            href={`/airport/${randomAirport.id}`}
+            className={buttonVariants({ variant: 'outline' })}
+          >
             Random Airport
           </Link>
         </div>
