@@ -27,7 +27,7 @@ const Loading = () => {
           <div className='mt-8'>
             <div className='mt-5'>
               {[...Array(6)].map((_: any, i: number) => (
-                <div className='w-80'>
+                <div key={i} className='w-80'>
                   <Skeleton className="w-64 h-4 mt-1.5" />
                   <Skeleton className="w-20 h-3 mt-3.5" />
                   <Separator className="mt-5 mb-4" />
