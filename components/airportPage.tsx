@@ -40,7 +40,7 @@ const Frequencies = ({ frequencies, setFrequency, height }: any) => {
                 <h3 className="text-lg font-medium">{frequency.name}</h3>
                 <span className="text-sm text-neutral-500">{Frequency}</span>
               </button>
-              <Separator className="my-4 last:hidden" />
+              <Separator className="my-4" />
             </div>
           )
         })}
