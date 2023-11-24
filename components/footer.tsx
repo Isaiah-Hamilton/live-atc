@@ -19,13 +19,13 @@ const Footer = ({ RandomAirport }: any) => {
             className={buttonVariants({ variant: 'ghost' })}
             href="https://twitter.com/isaiah7hamilton"
           >
-            <TwitterIcon strokeWidth={1} />
+            <TwitterIcon className="h-[1.2rem] w-[1.2rem]" strokeWidth={1} />
           </Link>
           <Link
             className={buttonVariants({ variant: 'ghost' })}
             href="https://github.com/isaiah-hamilton/live-atc"
           >
-            <GithubIcon strokeWidth={1} />
+            <GithubIcon className="h-[1.2rem] w-[1.2rem]" strokeWidth={1} />
           </Link>
         </div>
       </div>
