@@ -8,24 +8,22 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Card, CardContent } from "@/components/ui/card"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
-import { PlayIcon, SquareIcon, VolumeX, Volume2 } from "lucide-react";
-import { useState, useEffect } from "react"
-import Link from "next/link"
+} from '@/components/ui/table'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Card, CardContent } from '@/components/ui/card'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { Separator } from '@/components/ui/separator'
+import { PlayIcon, SquareIcon, VolumeX, Volume2 } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 const Frequencies = ({ frequencies, setFrequency }: any) => {
   return (
     <ScrollArea className="h-[685px] mt-8">
       <div className="mt-5 pr-4">
-        {frequencies?.length === 0 && (
-          <div>No Frequencies Found</div>
-        )}
+        {frequencies?.length === 0 && <div>No Frequencies Found</div>}
         {frequencies?.map((frequency: any) => {
-          const Frequency = frequency.frequency.toFixed(3);
+          const Frequency = frequency.frequency.toFixed(3)
           return (
             <>
               <button
@@ -34,45 +32,40 @@ const Frequencies = ({ frequencies, setFrequency }: any) => {
                   setFrequency({
                     audio: frequency.audio,
                     name: frequency.name,
-                  });
+                  })
                 }}
                 disabled={!frequency.status}
               >
-                <h3 className="text-lg font-medium">
-                  {frequency.name}
-                </h3>
-                <span className="text-sm text-neutral-500">
-                  {Frequency}
-                </span>
+                <h3 className="text-lg font-medium">{frequency.name}</h3>
+                <span className="text-sm text-neutral-500">{Frequency}</span>
               </button>
               <Separator className="my-4 last:hidden" />
             </>
-          );
+          )
         })}
-
       </div>
     </ScrollArea>
   )
 }
 
 const formatTime = (time: number) => {
-  const date = new Date(time * 1000);
-  let hours = date.getHours();
-  const minutes = "0" + date.getMinutes();
-  let PM = false;
+  const date = new Date(time * 1000)
+  let hours = date.getHours()
+  const minutes = '0' + date.getMinutes()
+  let PM = false
 
   if (hours > 12) {
-    PM = true;
-    hours -= 12;
+    PM = true
+    hours -= 12
   } else if (hours === 0) {
-    hours = 12;
+    hours = 12
   }
 
-  return `${hours}:${minutes.substr(-2)} ${PM ? "PM" : "AM"}`;
-};
+  return `${hours}:${minutes.substr(-2)} ${PM ? 'PM' : 'AM'}`
+}
 
 const ArrivalsTable = ({ arrivals }: any) => {
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(10)
 
   return (
     <Table>
@@ -89,9 +82,7 @@ const ArrivalsTable = ({ arrivals }: any) => {
       <TableBody>
         {arrivals.arrivals.slice(0, count).map((item: any) => (
           <TableRow key={item.flight.time.scheduled.arrival}>
-            <TableCell>
-              {formatTime(item.flight.time.scheduled.arrival)}
-            </TableCell>
+            <TableCell>{formatTime(item.flight.time.scheduled.arrival)}</TableCell>
             <TableCell>{item.flight.identification.callsign}</TableCell>
             <TableCell>
               <span>{item.flight.airport.origin.position.region.city} </span>
@@ -105,17 +96,14 @@ const ArrivalsTable = ({ arrivals }: any) => {
             <TableCell>{item.flight.airline?.short}</TableCell>
             <TableCell>{item.flight.aircraft.model.code}</TableCell>
             <TableCell>
-              {item.flight.status.generic.status.text}{" "}
+              {item.flight.status.generic.status.text}{' '}
               {formatTime(item.flight.status.generic.eventTime.utc)}
             </TableCell>
           </TableRow>
         ))}
       </TableBody>
       <TableCaption>
-        <button
-          className="hover:text-neutral-800"
-          onClick={() => setCount(count + 10)}
-        >
+        <button className="hover:text-neutral-800" onClick={() => setCount(count + 10)}>
           See More
         </button>
       </TableCaption>
@@ -141,14 +129,10 @@ const DeparturesTable = ({ departures }: any) => {
       <TableBody>
         {departures.departures.slice(0, count).map((item: any) => (
           <TableRow key={item.flight.time.scheduled.departure}>
-            <TableCell>
-              {formatTime(item.flight.time.scheduled.departure)}
-            </TableCell>
+            <TableCell>{formatTime(item.flight.time.scheduled.departure)}</TableCell>
             <TableCell>{item.flight.identification.callsign}</TableCell>
             <TableCell>
-              <span>
-                {item.flight.airport.destination.position.region.city}{" "}
-              </span>
+              <span>{item.flight.airport.destination.position.region.city} </span>
               <Link
                 href={item.flight.airport.destination.code.icao}
                 className="text-indigo-500 cursor-pointer"
@@ -159,58 +143,55 @@ const DeparturesTable = ({ departures }: any) => {
             <TableCell>{item.flight.airline?.short}</TableCell>
             <TableCell>{item.flight.aircraft.model.code}</TableCell>
             <TableCell>
-              {item.flight.status.generic.status.text}{" "}
+              {item.flight.status.generic.status.text}{' '}
               {formatTime(item.flight.status.generic.eventTime.utc)}
             </TableCell>
           </TableRow>
         ))}
       </TableBody>
       <TableCaption>
-        <button
-          className="hover:text-neutral-800"
-          onClick={() => setCount(count + 10)}
-        >
+        <button className="hover:text-neutral-800" onClick={() => setCount(count + 10)}>
           See More
         </button>
       </TableCaption>
     </Table>
-  );
+  )
 }
 
 const AirportPage = ({ frequencies, arrivals, departures }: any) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
-  const [frequency, setFrequency] = useState({ audio: "", name: "" })
+  const [frequency, setFrequency] = useState({ audio: '', name: '' })
 
   useEffect(() => {
-    const audio = document.getElementById("audio") as HTMLAudioElement;
+    const audio = document.getElementById('audio') as HTMLAudioElement
     if (audio) {
-      audio.src = frequency.audio;
-      audio.play();
+      audio.src = frequency.audio
+      audio.play()
     }
-    setIsPlaying(true);
-  }, [frequency]);
+    setIsPlaying(true)
+  }, [frequency])
 
   const handlePlayPause = () => {
-    const audio = document.getElementById("audio") as HTMLAudioElement;
+    const audio = document.getElementById('audio') as HTMLAudioElement
     if (audio) {
       if (audio.paused) {
-        audio.play();
-        setIsPlaying(true);
+        audio.play()
+        setIsPlaying(true)
       } else {
-        audio.pause();
-        setIsPlaying(false);
+        audio.pause()
+        setIsPlaying(false)
       }
     }
-  };
+  }
 
   const handleMute = () => {
-    const audio = document.getElementById("audio") as HTMLAudioElement;
+    const audio = document.getElementById('audio') as HTMLAudioElement
     if (audio) {
-      audio.muted = !audio.muted;
-      setIsMuted(!isMuted);
+      audio.muted = !audio.muted
+      setIsMuted(!isMuted)
     }
-  };
+  }
 
   return (
     <>
@@ -226,18 +207,10 @@ const AirportPage = ({ frequencies, arrivals, departures }: any) => {
               <TabsTrigger value="departures">Departures</TabsTrigger>
             </TabsList>
             <TabsContent value="arrivals">
-              <ArrivalsTable
-                arrivals={
-                  arrivals
-                }
-              />
+              <ArrivalsTable arrivals={arrivals} />
             </TabsContent>
             <TabsContent value="departures">
-              <DeparturesTable
-                departures={
-                  departures
-                }
-              />
+              <DeparturesTable departures={departures} />
             </TabsContent>
           </Tabs>
         </div>
@@ -252,14 +225,12 @@ const AirportPage = ({ frequencies, arrivals, departures }: any) => {
                   <button onClick={() => handlePlayPause()}>
                     {!isPlaying ? <PlayIcon /> : <SquareIcon />}
                   </button>
-                  <div className="ml-2">
-                    {isPlaying ? <div>LIVE</div> : <div>PAUSED</div>}
-                  </div>
+                  <div className="ml-2">{isPlaying ? <div>LIVE</div> : <div>PAUSED</div>}</div>
                 </div>
-                <div className="text-lg font-medium">{frequency.name || "Select any Frequency"}</div>
-                <button onClick={() => handleMute()}>
-                  {!isMuted ? <Volume2 /> : <VolumeX />}
-                </button>
+                <div className="text-lg font-medium">
+                  {frequency.name || 'Select any Frequency'}
+                </div>
+                <button onClick={() => handleMute()}>{!isMuted ? <Volume2 /> : <VolumeX />}</button>
               </div>
             </CardContent>
           </Card>

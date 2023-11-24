@@ -1,7 +1,7 @@
-import Link from "next/link"
-import { buttonVariants } from "./ui/button"
-import { Separator } from "./ui/separator"
-import { GithubIcon, TwitterIcon } from "lucide-react"
+import Link from 'next/link'
+import { buttonVariants } from './ui/button'
+import { Separator } from './ui/separator'
+import { GithubIcon, TwitterIcon } from 'lucide-react'
 
 const Footer = ({ RandomAirport }: any) => {
   return (
@@ -16,20 +16,20 @@ const Footer = ({ RandomAirport }: any) => {
 
         <div className="md:text-end space-x-2">
           <Link
-            className={buttonVariants({ variant: "ghost" })}
+            className={buttonVariants({ variant: 'ghost' })}
             href="https://twitter.com/isaiah7hamilton"
           >
             <TwitterIcon strokeWidth={1} />
           </Link>
           <Link
-            className={buttonVariants({ variant: "ghost" })}
+            className={buttonVariants({ variant: 'ghost' })}
             href="https://github.com/isaiah-hamilton/live-atc"
           >
             <GithubIcon strokeWidth={1} />
           </Link>
         </div>
       </div>
-    </footer >
+    </footer>
   )
 }
 

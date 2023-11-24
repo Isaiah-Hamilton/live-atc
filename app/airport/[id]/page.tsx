@@ -1,5 +1,5 @@
-import { Separator } from "@/components/ui/separator"
-import AirportPage from "@/components/airportPage"
+import { Separator } from '@/components/ui/separator'
+import AirportPage from '@/components/airportPage'
 
 const getAirport = async (id: string) => {
   const res = await fetch(`http://localhost:3000/api/airport/${id}`)
@@ -50,18 +50,18 @@ const Page = async ({ params }: { params: { id: string } }) => {
   return (
     <>
       <div className="mt-5 mb-10">
-        <p className="text-lg font-medium tracking-wide leading-none">
-          {airport.id}
-        </p>
-        <h1 className="text-4xl font-semibold tracking-tight">
-          {airport.name}
-        </h1>
+        <p className="text-lg font-medium tracking-wide leading-none">{airport.id}</p>
+        <h1 className="text-4xl font-semibold tracking-tight">{airport.name}</h1>
         <p>
           {airport.city}, {airport.region}
         </p>
         <Separator className="mt-5" />
       </div>
-      <AirportPage frequencies={frequencies.frequencies} arrivals={arrivals} departures={departures} />
+      <AirportPage
+        frequencies={frequencies.frequencies}
+        arrivals={arrivals}
+        departures={departures}
+      />
     </>
   )
 }
