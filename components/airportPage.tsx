@@ -13,13 +13,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Card, CardContent } from '@/components/ui/card'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
+import { buttonVariants } from './ui/button'
 import { PlayIcon, SquareIcon, VolumeX, Volume2 } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-const Frequencies = ({ frequencies, setFrequency }: any) => {
+const Frequencies = ({ frequencies, setFrequency, height }: any) => {
   return (
-    <ScrollArea className="h-[685px] mt-8">
+    <ScrollArea className="mt-8" style={{ height: `${height - 64}px` }}>
       <div className="mt-5 pr-4">
         {frequencies?.length === 0 && <div>No Frequencies Found</div>}
         {frequencies?.map((frequency: any) => {
@@ -88,7 +89,7 @@ const ArrivalsTable = ({ arrivals }: any) => {
               <span>{item.flight.airport.origin.position.region.city} </span>
               <Link
                 href={item.flight.airport.origin.code.icao}
-                className="text-indigo-500 cursor-pointer"
+                className={buttonVariants({ variant: 'link' }) + ' !text-indigo-500 !h-fit !p-0'}
               >
                 ({item.flight.airport.origin.code.iata})
               </Link>
@@ -159,9 +160,17 @@ const DeparturesTable = ({ departures }: any) => {
 }
 
 const AirportPage = ({ frequencies, arrivals, departures }: any) => {
+  const [height, setHeight] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
   const [frequency, setFrequency] = useState({ audio: '', name: '' })
+
+  useEffect(() => {
+    const divHeight = document.getElementById('targetHeight')?.clientHeight
+    if (divHeight) {
+      setHeight(divHeight)
+    }
+  }, [])
 
   useEffect(() => {
     const audio = document.getElementById('audio') as HTMLAudioElement
@@ -198,9 +207,9 @@ const AirportPage = ({ frequencies, arrivals, departures }: any) => {
       <div className="flex items-start justify-between">
         <div className="mt-1">
           <h2 className="text-3xl font-semibold">Frequencies</h2>
-          <Frequencies frequencies={frequencies} setFrequency={setFrequency} />
+          <Frequencies frequencies={frequencies} setFrequency={setFrequency} height={height} />
         </div>
-        <div>
+        <div id="targetHeight">
           <Tabs defaultValue="arrivals">
             <TabsList className="flex w-fit mx-auto mb-8">
               <TabsTrigger value="arrivals">Arrivals</TabsTrigger>
