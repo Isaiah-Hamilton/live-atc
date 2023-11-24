@@ -51,7 +51,7 @@ const Home = async () => {
           <Card key={airport.id}>
             <Link href={`/airport/${airport.id}`}>
               <CardHeader>
-                <CardTitle>{airport.id}</CardTitle>
+                <CardTitle className="tracking-wide">{airport.id}</CardTitle>
                 <CardDescription className="text-lg">{airport.name}</CardDescription>
               </CardHeader>
               <CardContent>
