@@ -204,12 +204,12 @@ const AirportPage = ({ frequencies, arrivals, departures }: any) => {
 
   return (
     <>
-      <div className="flex items-start justify-between">
-        <div className="mt-1">
+      <div className="my-8 grid grid-cols-1 lg:grid-cols-10 gap-14">
+        <div className="col-span-3">
           <h2 className="text-3xl font-semibold">Frequencies</h2>
           <Frequencies frequencies={frequencies} setFrequency={setFrequency} height={height} />
         </div>
-        <div id="targetHeight">
+        <div id="targetHeight" className="col-span-7 h-fit hidden lg:block">
           <Tabs defaultValue="arrivals">
             <TabsList className="flex w-fit mx-auto mb-8">
               <TabsTrigger value="arrivals">Arrivals</TabsTrigger>
