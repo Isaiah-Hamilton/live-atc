@@ -26,7 +26,7 @@ const Frequencies = ({ frequencies, setFrequency, height }: any) => {
         {frequencies?.map((frequency: any) => {
           const Frequency = frequency.frequency.toFixed(3)
           return (
-            <>
+            <div key={frequencies.name}>
               <button
                 className="text-left w-full"
                 onClick={() => {
@@ -41,7 +41,7 @@ const Frequencies = ({ frequencies, setFrequency, height }: any) => {
                 <span className="text-sm text-neutral-500">{Frequency}</span>
               </button>
               <Separator className="my-4 last:hidden" />
-            </>
+            </div>
           )
         })}
       </div>
@@ -82,7 +82,7 @@ const ArrivalsTable = ({ arrivals }: any) => {
       </TableHeader>
       <TableBody>
         {arrivals.arrivals.slice(0, count).map((item: any) => (
-          <TableRow key={item.flight.time.scheduled.arrival}>
+          <TableRow key={item.flight.identification.callsign}>
             <TableCell>{formatTime(item.flight.time.scheduled.arrival)}</TableCell>
             <TableCell>{item.flight.identification.callsign}</TableCell>
             <TableCell>
@@ -129,7 +129,7 @@ const DeparturesTable = ({ departures }: any) => {
       </TableHeader>
       <TableBody>
         {departures.departures.slice(0, count).map((item: any) => (
-          <TableRow key={item.flight.time.scheduled.departure}>
+          <TableRow key={item.flight.identification.callsign}>
             <TableCell>{formatTime(item.flight.time.scheduled.departure)}</TableCell>
             <TableCell>{item.flight.identification.callsign}</TableCell>
             <TableCell>
