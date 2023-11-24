@@ -13,7 +13,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Card, CardContent } from '@/components/ui/card'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
-import { buttonVariants } from './ui/button'
+import { Button, buttonVariants } from './ui/button'
 import { PlayIcon, SquareIcon, VolumeX, Volume2 } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
@@ -104,9 +104,9 @@ const ArrivalsTable = ({ arrivals }: any) => {
         ))}
       </TableBody>
       <TableCaption>
-        <button className="hover:text-neutral-800" onClick={() => setCount(count + 10)}>
+        <Button variant="link" onClick={() => setCount(count + 10)}>
           See More
-        </button>
+        </Button>
       </TableCaption>
     </Table>
   )
@@ -151,9 +151,9 @@ const DeparturesTable = ({ departures }: any) => {
         ))}
       </TableBody>
       <TableCaption>
-        <button className="hover:text-neutral-800" onClick={() => setCount(count + 10)}>
+        <Button variant="link" onClick={() => setCount(count + 10)}>
           See More
-        </button>
+        </Button>
       </TableCaption>
     </Table>
   )
