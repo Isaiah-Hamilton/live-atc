@@ -11,7 +11,7 @@ const getAirports = async () => {
   const res = await fetch(`${process.env.API_URL}/api/airport`)
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data')
+    throw new Error('Failed to fetch `Airports` data')
   }
 
   return res.json()

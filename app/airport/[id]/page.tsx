@@ -18,7 +18,7 @@ const getAirport = async (id: string) => {
   const airport = await res.json()
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data')
+    throw new Error('Failed to fetch `Airport` data')
   }
 
   return airport.airport[0]
@@ -28,7 +28,7 @@ const getFrequencies = async (id: string) => {
   const res = await fetch(`${process.env.API_URL}/api/airport/${id}/frequencies`)
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data')
+    throw new Error('Failed to fetch `Frequencies` data')
   }
 
   return res.json()
@@ -38,7 +38,7 @@ const getArrivals = async (id: string) => {
   const res = await fetch(`${process.env.API_URL}/api/airport/${id}/arrivals`)
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data')
+    throw new Error('Failed to fetch `Arrivals` data')
   }
 
   return res.json()
@@ -47,7 +47,7 @@ const getDepartures = async (id: string) => {
   const res = await fetch(`${process.env.API_URL}/api/airport/${id}/departures`)
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data')
+    throw new Error('Failed to fetch `Departures` data')
   }
 
   return res.json()

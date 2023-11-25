@@ -6,7 +6,7 @@ const getPopularAirports = async () => {
   const res = await fetch(`${process.env.API_URL}/api/popular`)
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data')
+    throw new Error('Failed to fetch `Popular Airports` data')
   }
 
   return res.json()
@@ -14,6 +14,11 @@ const getPopularAirports = async () => {
 
 const getRandomAirport = async () => {
   const res = await fetch(`${process.env.API_URL}/api/airport`)
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch `Random Airport` data')
+  }
+
   const data = await res.json()
 
   return data.airports[Math.floor(Math.random() * data.airports.length)]
