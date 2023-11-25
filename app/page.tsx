@@ -42,7 +42,7 @@ const Home = async () => {
             Listen Now
           </Link>
           <Link
-            href={`/ airport / ${randomAirport.id}`}
+            href={`/airport/${randomAirport.id}`}
             className={buttonVariants({ variant: 'outline' })}
           >
             Random Airport
