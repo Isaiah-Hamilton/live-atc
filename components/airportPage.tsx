@@ -81,7 +81,7 @@ const ArrivalsTable = ({ arrivals }: any) => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {arrivals.arrivals.slice(0, count).map((item: any) => (
+        {arrivals.arrivals.slice(0, count)?.map((item: any) => (
           <TableRow key={item.flight.identification.callsign}>
             <TableCell>{formatTime(item.flight.time.scheduled.arrival)}</TableCell>
             <TableCell>{item.flight.identification.callsign}</TableCell>
@@ -128,7 +128,7 @@ const DeparturesTable = ({ departures }: any) => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {departures.departures.slice(0, count).map((item: any) => (
+        {departures.departures.slice(0, count)?.map((item: any) => (
           <TableRow key={item.flight.identification.callsign}>
             <TableCell>{formatTime(item.flight.time.scheduled.departure)}</TableCell>
             <TableCell>{item.flight.identification.callsign}</TableCell>

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 }
 
 const getAirports = async () => {
-  const res = await fetch('http://localhost:3000/api/airport')
+  const res = await fetch(`${process.env.API_URL}/api/airport`)
 
   if (!res.ok) {
     throw new Error('Failed to fetch data')
@@ -23,7 +23,7 @@ const Page = async () => {
     <>
       <h1 className="text-4xl font-semibold mt-8 mb-6">Airports</h1>
       <div className="grid gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
-        {airports.airports.map((airport: any) => (
+        {airports.airports?.map((airport: any) => (
           <Card key={airport.id}>
             <Link href={`/airport/${airport.id}`}>
               <CardHeader>

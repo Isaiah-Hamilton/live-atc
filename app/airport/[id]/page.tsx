@@ -16,7 +16,7 @@ export async function generateMetadata(
 }
 
 const getAirport = async (id: string) => {
-  const res = await fetch(`http://localhost:3000/api/airport/${id}`)
+  const res = await fetch(`${process.env.API_URL}/api/airport/${id}`)
   const airport = await res.json()
 
   if (!res.ok) {
@@ -27,7 +27,7 @@ const getAirport = async (id: string) => {
 }
 
 const getFrequencies = async (id: string) => {
-  const res = await fetch(`http://localhost:3000/api/airport/${id}/frequencies`)
+  const res = await fetch(`${process.env.API_URL}/api/airport/${id}/frequencies`)
 
   if (!res.ok) {
     throw new Error('Failed to fetch data')
@@ -37,7 +37,7 @@ const getFrequencies = async (id: string) => {
 }
 
 const getArrivals = async (id: string) => {
-  const res = await fetch(`http://localhost:3000/api/airport/${id}/arrivals`)
+  const res = await fetch(`${process.env.API_URL}/api/airport/${id}/arrivals`)
 
   if (!res.ok) {
     throw new Error('Failed to fetch data')
@@ -46,7 +46,7 @@ const getArrivals = async (id: string) => {
   return res.json()
 }
 const getDepartures = async (id: string) => {
-  const res = await fetch(`http://localhost:3000/api/airport/${id}/departures`)
+  const res = await fetch(`${process.env.API_URL}/api/airport/${id}/departures`)
 
   if (!res.ok) {
     throw new Error('Failed to fetch data')

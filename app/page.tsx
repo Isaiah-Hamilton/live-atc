@@ -3,7 +3,8 @@ import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 const getPopularAirports = async () => {
-  const res = await fetch('http://localhost:3000/api/popular')
+
+  const res = await fetch(`${process.env.API_URL}/api/popular`)
 
   if (!res.ok) {
     throw new Error('Failed to fetch data')
@@ -13,7 +14,7 @@ const getPopularAirports = async () => {
 }
 
 const getRandomAirport = async () => {
-  const res = await fetch(`http://localhost:3000/api/airport`)
+  const res = await fetch(`${process.env.API_URL}/api/airport`)
   const data = await res.json()
 
   return data.airports[Math.floor(Math.random() * data.airports.length)]
@@ -37,7 +38,7 @@ const Home = async () => {
             Listen Now
           </Link>
           <Link
-            href={`/airport/${randomAirport.id}`}
+            href={`/ airport / ${randomAirport.id}`}
             className={buttonVariants({ variant: 'outline' })}
           >
             Random Airport
@@ -47,9 +48,9 @@ const Home = async () => {
 
       <h1 className="text-4xl font-semibold">Popular</h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 py-8">
-        {popularAirports.popularAirports.map((airport: any) => (
+        {popularAirports.popularAirports?.map((airport: any) => (
           <Card key={airport.id}>
-            <Link href={`/airport/${airport.id}`}>
+            <Link href={`/ airport / ${airport.id}`}>
               <CardHeader>
                 <CardTitle className="tracking-wide">{airport.id}</CardTitle>
                 <CardDescription className="text-lg">{airport.name}</CardDescription>
