@@ -1,5 +1,19 @@
 import { Separator } from '@/components/ui/separator'
 import AirportPage from '@/components/airportPage'
+import type { Metadata } from 'next'
+
+type Props = {
+  params: { id: string }
+}
+
+export async function generateMetadata(
+  { params }: Props,
+): Promise<Metadata> {
+  return {
+    title: `${params.id.toUpperCase()} | Live ATC`,
+    description: `Listen to ${params.id.toUpperCase()} on Live ATC`,
+  }
+}
 
 const getAirport = async (id: string) => {
   const res = await fetch(`http://localhost:3000/api/airport/${id}`)

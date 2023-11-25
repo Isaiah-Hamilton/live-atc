@@ -1,5 +1,11 @@
 import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'All Airports | Live ATC',
+  description: 'See all available airports on Live ATC',
+}
 
 const getAirports = async () => {
   const res = await fetch('http://localhost:3000/api/airport')
