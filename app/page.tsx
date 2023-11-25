@@ -54,7 +54,7 @@ const Home = async () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 py-8">
         {popularAirports.popularAirports?.map((airport: any) => (
           <Card key={airport.id}>
-            <Link href={`/ airport / ${airport.id}`}>
+            <Link href={`/airport/${airport.id}`}>
               <CardHeader>
                 <CardTitle className="tracking-wide">{airport.id}</CardTitle>
                 <CardDescription className="text-lg">{airport.name}</CardDescription>
