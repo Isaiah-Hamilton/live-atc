@@ -38,7 +38,7 @@ const getArrivals = async (id: string) => {
   const res = await fetch(`${process.env.API_URL}/api/airport/${id}/arrivals`)
 
   if (!res.ok) {
-    throw new Error('Failed to fetch `Arrivals` data')
+    return null
   }
 
   return res.json()
@@ -47,7 +47,7 @@ const getDepartures = async (id: string) => {
   const res = await fetch(`${process.env.API_URL}/api/airport/${id}/departures`)
 
   if (!res.ok) {
-    throw new Error('Failed to fetch `Departures` data')
+    return null
   }
 
   return res.json()
