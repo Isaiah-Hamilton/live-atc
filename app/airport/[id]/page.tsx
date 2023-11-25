@@ -6,9 +6,7 @@ type Props = {
   params: { id: string }
 }
 
-export async function generateMetadata(
-  { params }: Props,
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${params.id.toUpperCase()} | Live ATC`,
     description: `Listen to ${params.id.toUpperCase()} on Live ATC`,

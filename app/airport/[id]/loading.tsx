@@ -24,10 +24,10 @@ const Loading = () => {
       <div className="my-8 grid grid-cols-1 lg:grid-cols-10 gap-14">
         <div className="col-span-3">
           <h2 className="text-3xl font-semibold">Frequencies</h2>
-          <div className='mt-8'>
-            <div className='mt-5'>
+          <div className="mt-8">
+            <div className="mt-5">
               {[...Array(6)].map((_: any, i: number) => (
-                <div key={i} className='w-80'>
+                <div key={i} className="w-80">
                   <Skeleton className="w-64 h-4 mt-1.5" />
                   <Skeleton className="w-20 h-3 mt-3.5" />
                   <Separator className="mt-5 mb-4" />
@@ -58,21 +58,29 @@ const Loading = () => {
                 <TableBody>
                   {[...Array(10)].map((_: any, i: number) => (
                     <TableRow key={i}>
-                      <TableCell><Skeleton className='w-14 h-3' /></TableCell>
-                      <TableCell><Skeleton className='w-12 h-3' /></TableCell>
                       <TableCell>
-                        <Skeleton className='w-24 h-4' />
+                        <Skeleton className="w-14 h-3" />
                       </TableCell>
-                      <TableCell><Skeleton className='w-24 h-3' /></TableCell>
-                      <TableCell><Skeleton className='w-8 h-3' /></TableCell>
                       <TableCell>
-                        <Skeleton className='w-28 h-3' />
+                        <Skeleton className="w-12 h-3" />
+                      </TableCell>
+                      <TableCell>
+                        <Skeleton className="w-24 h-4" />
+                      </TableCell>
+                      <TableCell>
+                        <Skeleton className="w-24 h-3" />
+                      </TableCell>
+                      <TableCell>
+                        <Skeleton className="w-8 h-3" />
+                      </TableCell>
+                      <TableCell>
+                        <Skeleton className="w-28 h-3" />
                       </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
                 <TableCaption>
-                  <Skeleton className='w-16 h-3' />
+                  <Skeleton className="w-16 h-3" />
                 </TableCaption>
               </Table>
             </TabsContent>

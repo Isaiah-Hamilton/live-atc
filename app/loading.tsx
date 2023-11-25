@@ -1,6 +1,6 @@
-import { Skeleton } from "@/components/ui/skeleton"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Skeleton } from '@/components/ui/skeleton'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 const Loading = () => {
   return (
@@ -14,12 +14,8 @@ const Loading = () => {
           <p className="text-xl">Listen to 1,000+ Live Frequencies For Free</p>
         </div>
         <div className="w-fit mx-auto flex items-center space-x-4 font-medium">
-          <Button>
-            Listen Now
-          </Button>
-          <Button variant="outline">
-            Random Airport
-          </Button>
+          <Button>Listen Now</Button>
+          <Button variant="outline">Random Airport</Button>
         </div>
       </div>
 
@@ -28,8 +24,12 @@ const Loading = () => {
         {[...Array(6)].map((_: any, i: number) => (
           <Card key={i}>
             <CardHeader>
-              <CardTitle><Skeleton className="w-16 h-5" /></CardTitle>
-              <CardDescription><Skeleton className="w-72 h-5" /></CardDescription>
+              <CardTitle>
+                <Skeleton className="w-16 h-5" />
+              </CardTitle>
+              <CardDescription>
+                <Skeleton className="w-72 h-5" />
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <Skeleton className="w-24 h-3.5" />
