@@ -53,7 +53,7 @@ const Navbar = () => {
   const handleInputEnter = (event: any) => {
     if (event.key === 'Enter') {
       event.preventDefault()
-      router.push(`/search?id=${search}`)
+      router.push(`/search?keyword=${search}`)
     }
   }
 
@@ -80,7 +80,7 @@ const Navbar = () => {
               <Input
                 type="search"
                 value={search}
-                placeholder="Search by icao"
+                placeholder="Search"
                 className="m-1"
                 onChange={(e) => handleInputChange(e)}
                 onKeyDown={(e) => handleInputEnter(e)}
