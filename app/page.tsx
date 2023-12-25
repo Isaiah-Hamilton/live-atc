@@ -54,12 +54,12 @@ const Home = async () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 py-8">
         {popularAirports.popularAirports?.map((airport: any) => (
           <Card key={airport.id}>
-            <Link href={`/airport/${airport.id}`}>
-              <CardHeader>
+            <Link className="flex flex-col h-full" href={`/airport/${airport.id}`}>
+              <CardHeader className="flex-grow">
                 <CardTitle className="tracking-wide">{airport.id}</CardTitle>
                 <CardDescription className="text-lg">{airport.name}</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-shrink">
                 <p className="text-sm">
                   {airport?.city}, {airport?.region}
                 </p>
